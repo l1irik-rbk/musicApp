@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
+import { ERROR_MESSAGE } from '../../helpers/constants';
 import { IFetchTracks, Status } from '../../helpers/constantsTypes';
 import { findTracks } from '../../utils/find';
 import { setTotalTracksOrArtists } from '../slices/mainPageSlice';
@@ -17,7 +18,7 @@ export const fetchTracks = createAsyncThunk(
       const { data } = response;
 
       if (response.statusText !== Status.OK || data.message.header.status_code !== Status.SUCCESS) {
-        throw new Error('Oops! Something went wrong!');
+        throw new Error(ERROR_MESSAGE);
       }
 
       const totalTracks: number = data.message.header.available;

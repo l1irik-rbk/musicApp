@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
-import { getChart } from '../../utils/getChart';
+import { getChartTracks } from '../../utils/getChartTracks';
 
 export const fetchChartArtists = createAsyncThunk(
   'chartArtists/fetchChartArtists',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(getChart());
+      const response = await axios.get(getChartTracks());
       const { data } = response;
 
       if (response.statusText !== 'OK') {

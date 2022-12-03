@@ -24,3 +24,8 @@ export interface IFetchTracks {
   searchOption: SingleValue<IOptions>;
   raitingOption: SingleValue<IOptions>;
 }
+
+export interface ICountry {
+  name: string;
+  alpha2Code: string;
+}
