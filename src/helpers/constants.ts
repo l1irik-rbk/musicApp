@@ -14,7 +14,7 @@ export const URL = `${CORS_URL}/${BASE_URL}`;
 const BASE_COUNTRIES_URL = 'https://restcountries.com/v2';
 
 export const ALL_COUNTRIES = `${BASE_COUNTRIES_URL}/all?fields=name,alpha2Code`;
-// https://restcountries.com/v2/all?fields=name,alpha2Code
+
 export const ENTER_BUTTON = 'Enter';
 
 export const ERROR_MESSAGE = 'Oops! Something went wrong!';

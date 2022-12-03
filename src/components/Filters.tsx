@@ -20,11 +20,11 @@ const Filters = () => {
     raitingOption,
     searchOption,
     countriesOption,
-    countries: { countriesOptions },
+    countries: { countriesOptions, error },
   } = useAppSelector((state) => state.filters);
 
   useEffect(() => {
-    if (!countriesOptions) dispatch(fetchCountries());
+    if (!countriesOptions.length) dispatch(fetchCountries());
   }, []);
 
   const handleSearchOption = (value: SingleValue<IOptions>) => {
@@ -59,6 +59,7 @@ const Filters = () => {
           options={countriesOptions as IOptions[]}
           value={countriesOption}
           onChange={handleCountriesOption}
+          noOptionsMessage={() => error}
         />
       )}
     </div>

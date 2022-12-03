@@ -9,7 +9,7 @@ interface IFilters {
   raitingOption: SingleValue<IOptions>;
   countriesOption: SingleValue<IOptions>;
   countries: {
-    countriesOptions: IOptions[] | null;
+    countriesOptions: IOptions[];
     status: null | string;
     error: null | string;
   };
@@ -20,7 +20,7 @@ const initialState: IFilters = {
   raitingOption: { value: 'desc', label: 'The best' },
   countriesOption: { value: 'RU', label: 'Russian Federation' },
   countries: {
-    countriesOptions: null,
+    countriesOptions: [],
     status: null,
     error: null,
   },
