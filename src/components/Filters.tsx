@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Select, { SingleValue } from 'react-select';
 
-import { searchOptions, raitingOptions } from '../helpers/constants';
 import { IOptions } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import {
+  defaultOptions,
+  raitingOptions,
+  searchOptions,
   setCountriesOption,
   setRaitingOption,
   setSearchOption,
@@ -26,6 +28,11 @@ const Filters = () => {
   useEffect(() => {
     if (!countriesOptions.length) dispatch(fetchCountries());
   }, []);
+
+  useEffect(() => {
+    dispatch(setSearchOption(defaultOptions.searchOption));
+    dispatch(setRaitingOption(defaultOptions.raitingOption));
+  }, [location.pathname]);
 
   const handleSearchOption = (value: SingleValue<IOptions>) => {
     dispatch(setSearchOption(value));

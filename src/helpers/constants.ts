@@ -29,13 +29,3 @@ export const ROUTES: IRoutes[] = [
   { path: 'charts', element: Charts },
   { path: '*', element: NotFound },
 ];
-
-export const searchOptions: IOptions[] = [
-  { value: 'track', label: 'Tracks' },
-  { value: 'artist', label: 'Artists' },
-];
-
-export const raitingOptions: IOptions[] = [
-  { value: 'desc', label: 'The best' },
-  { value: 'asc', label: 'The worst' },
-];

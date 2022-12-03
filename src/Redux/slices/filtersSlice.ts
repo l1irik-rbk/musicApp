@@ -15,10 +15,26 @@ interface IFilters {
   };
 }
 
-const initialState: IFilters = {
-  searchOption: { value: 'track', label: 'Tracks' },
-  raitingOption: { value: 'desc', label: 'The best' },
+export const searchOptions: IOptions[] = [
+  { value: 'track', label: 'Tracks' },
+  { value: 'artist', label: 'Artists' },
+];
+
+export const raitingOptions: IOptions[] = [
+  { value: 'desc', label: 'The best' },
+  { value: 'asc', label: 'The worst' },
+];
+
+export const defaultOptions = {
+  searchOption: searchOptions[0],
+  raitingOption: raitingOptions[0],
   countriesOption: { value: 'RU', label: 'Russian Federation' },
+};
+
+const initialState: IFilters = {
+  searchOption: defaultOptions.searchOption,
+  raitingOption: defaultOptions.raitingOption,
+  countriesOption: defaultOptions.countriesOption,
   countries: {
     countriesOptions: [],
     status: null,

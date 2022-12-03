@@ -8,6 +8,7 @@ export const fetchChartTracks = createAsyncThunk(
     try {
       const response = await axios.get(getChartTracks());
       const { data } = response;
+
       if (response.statusText !== 'OK') {
         throw new Error('Server Error!');
       }

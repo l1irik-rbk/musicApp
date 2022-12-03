@@ -8,7 +8,6 @@ const Charts = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log('useEffect');
     // dispatch(fetchChartArtists());
   }, []);
 
