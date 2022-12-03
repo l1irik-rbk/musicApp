@@ -1,28 +1,17 @@
 import Charts from '../pages/Charts';
 import MainPage from '../pages/MainPage';
 import NotFound from '../pages/NotFound';
+import { IOptions, IRoutes } from './constantsTypes';
 
-const API_KEY = 'apikey=f65d8f74ef058c97d0b0180f0efc5ac2';
+export const API_KEY = 'apikey=f65d8f74ef058c97d0b0180f0efc5ac2';
 
 const BASE_URL = 'https://api.musixmatch.com/ws/1.1';
 
-export const CORS_URL = 'https://cors-anywhere.herokuapp.com';
+const CORS_URL = 'https://cors-anywhere.herokuapp.com';
 
-const URL = `${CORS_URL}/${BASE_URL}`;
+export const URL = `${CORS_URL}/${BASE_URL}`;
 
 export const ENTER_BUTTON = 'Enter';
-
-export const findTracks = (trackValue: string) =>
-  `${URL}/track.search?q_track=${trackValue}&page_size=10&page=1&s_track_rating=desc&${API_KEY}`;
-
-export const findArtists = (artistValue: string) =>
-  `${URL}/track.search?q_artist=${artistValue}&page_size=10&page=1&s_track_rating=desc&${API_KEY}`;
-
-export enum Status {
-  PENDING = 'pending',
-  FULFILLED = 'fulfilled',
-  REJECTED = 'rejected',
-}
 
 export const MENU_LINKS = [
   { path: '/', linkName: 'Default' },
@@ -36,8 +25,12 @@ export const ROUTES: IRoutes[] = [
   { path: '*', element: NotFound },
 ];
 
-interface IRoutes {
-  path?: string;
-  index?: boolean;
-  element: () => JSX.Element;
-}
+export const searchOptions: IOptions[] = [
+  { value: 'track', label: 'Tracks' },
+  { value: 'artist', label: 'Artists' },
+];
+
+export const raitingOptions: IOptions[] = [
+  { value: 'desc', label: 'The best' },
+  { value: 'asc', label: 'The worst' },
+];
