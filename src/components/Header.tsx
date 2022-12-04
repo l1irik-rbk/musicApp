@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MENU_LINKS } from '../helpers/constants';
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <header className="header">
       <ul className="nav__menu">

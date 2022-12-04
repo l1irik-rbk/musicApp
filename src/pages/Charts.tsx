@@ -1,19 +1,26 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { SingleValue } from 'react-select';
 import Filters from '../components/Filters';
-import { useAppDispatch } from '../Redux/hooks';
+import { IOptions } from '../helpers/constantsTypes';
+import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchChartArtists } from '../Redux/thunks/fetchChartArtists';
+import { fetchChartTracks } from '../Redux/thunks/fetchChartTracks';
 
-const Charts = () => {
+const Charts = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const { searchOption, countriesOption } = useAppSelector((state) => state.filters);
 
   useEffect(() => {
-    // dispatch(fetchChartArtists());
-  }, []);
+    const lang = { lang: (countriesOption as IOptions).value };
+    searchOption?.value === 'track'
+      ? dispatch(fetchChartTracks(lang))
+      : dispatch(fetchChartArtists(lang));
+  }, [searchOption, countriesOption]);
 
   return (
     <div>
       <Filters />
+      <div></div>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import Charts from '../pages/Charts';
+import FAQ from '../pages/FAQ';
 import MainPage from '../pages/MainPage';
 import NotFound from '../pages/NotFound';
-import { IOptions, IRoutes } from './constantsTypes';
+import { IRoutes, Paths } from './constantsTypes';
 
 export const API_KEY = 'apikey=f65d8f74ef058c97d0b0180f0efc5ac2';
 
@@ -20,12 +21,14 @@ export const ENTER_BUTTON = 'Enter';
 export const ERROR_MESSAGE = 'Oops! Something went wrong!';
 
 export const MENU_LINKS = [
-  { path: '/', linkName: 'Default' },
-  { path: '/charts', linkName: 'Charts' },
+  { path: Paths.DEFAULT, linkName: 'Default' },
+  { path: Paths.CHARTS, linkName: 'Charts' },
+  { path: Paths.FAQ, linkName: 'FAQ' },
 ];
 
 export const ROUTES: IRoutes[] = [
   { path: '', index: true, element: MainPage },
   { path: 'charts', element: Charts },
+  { path: 'FAQ', element: FAQ },
   { path: '*', element: NotFound },
 ];

@@ -2,10 +2,9 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Select, { SingleValue } from 'react-select';
 
-import { IOptions } from '../helpers/constantsTypes';
+import { IOptions, Paths } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import {
-  defaultOptions,
   raitingOptions,
   searchOptions,
   setCountriesOption,
@@ -14,7 +13,7 @@ import {
 } from '../Redux/slices/filtersSlice';
 import { fetchCountries } from '../Redux/thunks/fetchCountries';
 
-const Filters = () => {
+const Filters = (): JSX.Element => {
   const location = useLocation();
 
   const dispatch = useAppDispatch();
@@ -26,13 +25,8 @@ const Filters = () => {
   } = useAppSelector((state) => state.filters);
 
   useEffect(() => {
-    if (!countriesOptions.length) dispatch(fetchCountries());
+    if (!countriesOptions.length && location.pathname === Paths.CHARTS) dispatch(fetchCountries());
   }, []);
-
-  useEffect(() => {
-    dispatch(setSearchOption(defaultOptions.searchOption));
-    dispatch(setRaitingOption(defaultOptions.raitingOption));
-  }, [location.pathname]);
 
   const handleSearchOption = (value: SingleValue<IOptions>) => {
     dispatch(setSearchOption(value));
@@ -54,14 +48,17 @@ const Filters = () => {
         onChange={handleSearchOption}
         isSearchable={false}
       />
-      <Select
-        options={raitingOptions}
-        value={raitingOption}
-        onChange={handleRaitingOption}
-        isSearchable={false}
-      />
 
-      {location.pathname === '/charts' && (
+      {location.pathname !== Paths.CHARTS && (
+        <Select
+          options={raitingOptions}
+          value={raitingOption}
+          onChange={handleRaitingOption}
+          isSearchable={false}
+        />
+      )}
+
+      {location.pathname === Paths.CHARTS && (
         <Select
           options={countriesOptions as IOptions[]}
           value={countriesOption}

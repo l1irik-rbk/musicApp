@@ -8,6 +8,12 @@ export enum Status {
   SUCCESS = 200,
 }
 
+export enum Paths {
+  DEFAULT = '/',
+  CHARTS = '/charts',
+  FAQ = '/FAQ',
+}
+
 export interface IRoutes {
   path?: string;
   index?: boolean;
