@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import TrackInfo from '../components/TrackInfo';
+import { ITrackA } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
-import { ITrackA } from '../Redux/slices/mainPageSlice';
 import { fetchLyrics } from '../Redux/thunks/fetchLyrics';
+import { fetchTrack } from '../Redux/thunks/fetchTrack';
 
 const Track = () => {
   const { trackID } = useParams();
 
   const dispatch = useAppDispatch();
   const { tracks } = useAppSelector((state) => state.mainPage);
-  const { currentTrack } = useAppSelector((state) => state.currentTrack);
+  const { currentTrackLyrics, currentTrackInfo } = useAppSelector((state) => state.currentTrack);
 
   const [track, setTrack] = useState(
     (tracks as ITrackA[]).filter(({ track }) => track.track_id === Number(trackID))
   );
 
   useEffect(() => {
-    console.log(currentTrack?.lyrics_body.split('\n'));
     dispatch(fetchLyrics(Number(trackID)));
+    dispatch(fetchTrack(Number(trackID)));
   }, []);
 
   return (
     <div>
-      Track {trackID}
+      <TrackInfo track={currentTrackInfo} />
       <div>
-        {currentTrack?.lyrics_body.split('\n').map((string, index) => (
+        {currentTrackLyrics?.lyrics_body.split('\n').map((string, index) => (
           <p key={index}>{string}</p>
         ))}
       </div>

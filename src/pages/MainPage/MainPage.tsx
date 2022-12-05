@@ -9,7 +9,7 @@ import Tracks from '../../components/Tracks';
 import Artists from '../../components/Artists';
 
 const MainPage = (): JSX.Element => {
-  const [searchValue, setSearchValue] = useState('eminem');
+  const [searchValue, setSearchValue] = useState('rap god');
 
   const dispatch = useAppDispatch();
   const { status, error } = useAppSelector((state) => state.mainPage);

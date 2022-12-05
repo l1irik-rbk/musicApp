@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Status } from '../../helpers/constantsTypes';
+import { IArtistA, ITrackA, Status } from '../../helpers/constantsTypes';
 import { fetchTracks } from '../thunks/fetchTracks';
 
 interface IMainPage {
@@ -8,36 +8,6 @@ interface IMainPage {
   totalTracksOrArtists: null | number;
   status: null | string;
   error: null | string;
-}
-
-export interface ITrackA {
-  track: ITrack;
-}
-
-interface ITrack {
-  album_id: number;
-  album_name: string;
-  artist_name: string;
-  track_id: number;
-  track_name: string;
-  num_favourite: number;
-}
-
-export interface IArtistA {
-  artist: IArtist;
-}
-
-interface IArtist {
-  artist_id: number;
-  artist_name: string;
-  artist_country: string;
-  begin_date: string;
-  end_date: string;
-  artist_alias_list: IAliases[];
-}
-
-interface IAliases {
-  artist_alias: string;
 }
 
 const initialState: IMainPage = {

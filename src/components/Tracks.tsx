@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAppSelector } from '../Redux/hooks';
+import TrackInfo from './TrackInfo';
 
 const Tracks = (): JSX.Element => {
   const { tracks } = useAppSelector((state) => state.mainPage);
@@ -11,14 +12,7 @@ const Tracks = (): JSX.Element => {
       {tracks.map(({ track }) => (
         <div key={track.track_id}>
           <Link to={`/tracks/${track.track_id}`}>
-            <h3>
-              {track.track_name} - {track.artist_name}
-            </h3>
-
-            <ul>
-              <li>Album: {track.album_name}</li>
-              <li>{track.num_favourite} people added to favorites</li>
-            </ul>
+            <TrackInfo track={track} />
           </Link>
           <a
             href={`https://music.yandex.ru/search?text=${track.track_name} ${track.artist_name}`}
