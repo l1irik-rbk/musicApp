@@ -3,19 +3,49 @@ import { Status } from '../../helpers/constantsTypes';
 import { fetchTracks } from '../thunks/fetchTracks';
 
 interface IMainPage {
-  tracks: [] | null;
-  artists: [] | null;
-  totalTracks: null | number;
+  tracks: ITrackA[];
+  artists: IArtistA[];
+  totalTracksOrArtists: null | number;
   status: null | string;
   error: null | string;
 }
 
+export interface ITrackA {
+  track: ITrack;
+}
+
+interface ITrack {
+  album_id: number;
+  album_name: string;
+  artist_name: string;
+  track_id: number;
+  track_name: string;
+  num_favourite: number;
+}
+
+export interface IArtistA {
+  artist: IArtist;
+}
+
+interface IArtist {
+  artist_id: number;
+  artist_name: string;
+  artist_country: string;
+  begin_date: string;
+  end_date: string;
+  artist_alias_list: IAliases[];
+}
+
+interface IAliases {
+  artist_alias: string;
+}
+
 const initialState: IMainPage = {
-  tracks: null,
-  artists: null,
+  tracks: [],
+  artists: [],
   status: null,
   error: null,
-  totalTracks: null,
+  totalTracksOrArtists: null,
 };
 
 export const mainPageSlice = createSlice({
@@ -23,7 +53,7 @@ export const mainPageSlice = createSlice({
   initialState,
   reducers: {
     setTotalTracksOrArtists: (state, action: PayloadAction<number>) => {
-      state.totalTracks = action.payload;
+      state.totalTracksOrArtists = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -34,9 +64,9 @@ export const mainPageSlice = createSlice({
     builder.addCase(fetchTracks.fulfilled, (state, action) => {
       if (action.payload.track_list) {
         state.tracks = action.payload.track_list;
-        state.artists = null;
+        state.artists = [];
       } else {
-        state.tracks = null;
+        state.tracks = [];
         state.artists = action.payload.artist_list;
       }
       state.status = Status.FULFILLED;

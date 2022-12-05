@@ -1,8 +1,10 @@
+import Track from '../pages/Track';
 import Charts from '../pages/Charts';
 import FAQ from '../pages/FAQ';
-import MainPage from '../pages/MainPage';
+import MainPage from '../pages/MainPage/MainPage';
 import NotFound from '../pages/NotFound';
 import { IRoutes, Paths } from './constantsTypes';
+import Artist from '../pages/Artist';
 
 export const API_KEY = 'apikey=f65d8f74ef058c97d0b0180f0efc5ac2';
 
@@ -29,6 +31,8 @@ export const MENU_LINKS = [
 export const ROUTES: IRoutes[] = [
   { path: '', index: true, element: MainPage },
   { path: 'charts', element: Charts },
+  { path: 'tracks/:trackID', element: Track },
+  { path: 'artists/:artistID', element: Artist },
   { path: 'FAQ', element: FAQ },
   { path: '*', element: NotFound },
 ];

@@ -23,10 +23,10 @@ export const chartArtistsSlice = createSlice({
       state.status = Status.PENDING;
       state.error = null;
     });
-    // builder.addCase(fetchChartArtists.fulfilled, (state, action: PayloadAction<[]>) => {
-    //   state.chartArtists = action.payload;
-    //   state.status = Status.FULFILLED;
-    // });
+    builder.addCase(fetchChartArtists.fulfilled, (state, action: PayloadAction<[]>) => {
+      state.chartArtists = action.payload;
+      state.status = Status.FULFILLED;
+    });
     builder.addCase(fetchChartArtists.rejected, (state, action) => {
       state.status = Status.REJECTED;
       state.error = action.payload as string;

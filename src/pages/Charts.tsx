@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { SingleValue } from 'react-select';
+
 import Filters from '../components/Filters';
 import { IOptions } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';

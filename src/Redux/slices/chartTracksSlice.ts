@@ -23,10 +23,10 @@ export const chartTracksSlice = createSlice({
       state.status = Status.PENDING;
       state.error = null;
     });
-    // builder.addCase(fetchChartTracks.fulfilled, (state, action: PayloadAction<[]>) => {
-    //   state.chartTracks = action.payload;
-    //   state.status = Status.FULFILLED;
-    // });
+    builder.addCase(fetchChartTracks.fulfilled, (state, action: PayloadAction<[]>) => {
+      state.chartTracks = action.payload;
+      state.status = Status.FULFILLED;
+    });
     builder.addCase(fetchChartTracks.rejected, (state, action) => {
       state.status = Status.REJECTED;
       state.error = action.payload as string;

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import Filters from '../components/Filters';
+import Filters from '../../components/Filters';
 
-import { ENTER_BUTTON } from '../helpers/constants';
-import { Status } from '../helpers/constantsTypes';
-import { useAppDispatch, useAppSelector } from '../Redux/hooks';
-import { fetchTracks } from '../Redux/thunks/fetchTracks';
+import { ENTER_BUTTON } from '../../helpers/constants';
+import { Status } from '../../helpers/constantsTypes';
+import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
+import { fetchTracks } from '../../Redux/thunks/fetchTracks';
+import Tracks from '../../components/Tracks';
+import Artists from '../../components/Artists';
 
 const MainPage = (): JSX.Element => {
-  const [searchValue, setSearchValue] = useState('rap god');
+  const [searchValue, setSearchValue] = useState('eminem');
 
   const dispatch = useAppDispatch();
   const { status, error } = useAppSelector((state) => state.mainPage);
@@ -34,6 +36,8 @@ const MainPage = (): JSX.Element => {
       </div>
 
       <div>
+        <Tracks />
+        <Artists />
         {status === Status.PENDING && <div>Loading...</div>}
         {error && <div>{error}</div>}
       </div>

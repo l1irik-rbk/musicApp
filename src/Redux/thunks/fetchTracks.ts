@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 import { ERROR_MESSAGE } from '../../helpers/constants';
 import { IFetchTracks, Status } from '../../helpers/constantsTypes';
-import { findTracks } from '../../utils/find';
+import { findTracksOrArtists } from '../../utils/find';
 import { setTotalTracksOrArtists } from '../slices/mainPageSlice';
 
 export const fetchTracks = createAsyncThunk(
@@ -13,7 +13,7 @@ export const fetchTracks = createAsyncThunk(
   ) => {
     try {
       const response = await axios.get(
-        findTracks(searchValue, searchOption!.value, raitingOption!.value)
+        findTracksOrArtists(searchValue, searchOption!.value, raitingOption!.value)
       );
       const { data } = response;
 
@@ -24,8 +24,8 @@ export const fetchTracks = createAsyncThunk(
       const totalTracks: number = data.message.header.available;
       dispatch(setTotalTracksOrArtists(totalTracks));
 
-      console.log(data.message);
-      console.log(data.message.body);
+      console.log(data.message.body.track_list);
+      console.log(data.message.body.artist_list);
       return data.message.body;
     } catch (error) {
       return rejectWithValue((error as AxiosError).message);
