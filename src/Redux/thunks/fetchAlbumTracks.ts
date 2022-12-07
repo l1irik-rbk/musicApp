@@ -3,21 +3,26 @@ import axios, { AxiosError } from 'axios';
 
 import { ERROR_MESSAGE } from '../../helpers/constants';
 import { Status } from '../../helpers/constantsTypes';
-import { getTrack } from '../../utils/getTrack';
+import { getArtistAlbums } from '../../utils/getArtistAlbums';
+import { setTotalAlbumTracks } from '../slices/albumSlice';
 
-export const fetchTrack = createAsyncThunk(
-  'track/fetchTrack',
-  async (trackID: number, { rejectWithValue }) => {
+export const fetchAlbumTracks = createAsyncThunk(
+  'artists/fetchAlbumTracks',
+  async (albumID: number, { rejectWithValue, dispatch }) => {
     try {
-      const response = await axios.get(getTrack(trackID));
+      const response = await axios.get(getArtistAlbums(artistID));
       const { data } = response;
 
       if (response.statusText !== Status.OK || data.message.header.status_code !== Status.SUCCESS) {
         throw new Error(ERROR_MESSAGE);
       }
 
+      const totalAlbums: number = data.message.header.available;
+
+      dispatch(setTotalAlbumTracks(totalAlbums));
+
       console.log(data.message.body);
-      return data.message.body.track;
+      // return data.message.body.album_list;
     } catch (error) {
       return rejectWithValue((error as AxiosError).message);
     }

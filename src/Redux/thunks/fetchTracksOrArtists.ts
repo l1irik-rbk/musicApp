@@ -2,10 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 import { ERROR_MESSAGE } from '../../helpers/constants';
 import { IFetchTracks, Status } from '../../helpers/constantsTypes';
-import { findTracksOrArtists } from '../../utils/find';
+import { findTracksOrArtists } from '../../utils/findTracksOrArtists';
 import { setTotalTracksOrArtists } from '../slices/mainPageSlice';
 
-export const fetchTracks = createAsyncThunk(
+export const fetchTracksOrArtists = createAsyncThunk(
   'mainPage/fetchTracks',
   async (
     { searchValue, searchOption, raitingOption }: IFetchTracks,

@@ -1,4 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { currentArtistSlice } from './slices/artistSlice';
 import { chartArtistsSlice } from './slices/chartArtistsSlice';
 import { chartTracksSlice } from './slices/chartTracksSlice';
 import { filtersSlice } from './slices/filtersSlice';
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   chartTracks: chartTracksSlice.reducer,
   chartArtists: chartArtistsSlice.reducer,
   currentTrack: currentTrackSlice.reducer,
+  currentArtist: currentArtistSlice.reducer,
 });
 
 export const store = configureStore({

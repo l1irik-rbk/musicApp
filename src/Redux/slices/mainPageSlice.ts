@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IArtistA, ITrackA, Status } from '../../helpers/constantsTypes';
-import { fetchTracks } from '../thunks/fetchTracks';
+import { fetchTracksOrArtists } from '../thunks/fetchTracksOrArtists';
 
 interface IMainPage {
   tracks: ITrackA[];
@@ -27,11 +27,11 @@ export const mainPageSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchTracks.pending, (state) => {
+    builder.addCase(fetchTracksOrArtists.pending, (state) => {
       state.status = Status.PENDING;
       state.error = null;
     });
-    builder.addCase(fetchTracks.fulfilled, (state, action) => {
+    builder.addCase(fetchTracksOrArtists.fulfilled, (state, action) => {
       if (action.payload.track_list) {
         state.tracks = action.payload.track_list;
         state.artists = [];
@@ -41,7 +41,7 @@ export const mainPageSlice = createSlice({
       }
       state.status = Status.FULFILLED;
     });
-    builder.addCase(fetchTracks.rejected, (state, action) => {
+    builder.addCase(fetchTracksOrArtists.rejected, (state, action) => {
       state.status = Status.REJECTED;
       state.error = action.payload as string;
     });

@@ -26,7 +26,7 @@ export const raitingOptions: IOptions[] = [
 ];
 
 export const defaultOptions = {
-  searchOption: searchOptions[0],
+  searchOption: searchOptions[1],
   raitingOption: raitingOptions[0],
   countriesOption: { value: 'RU', label: 'Russian Federation' },
 };

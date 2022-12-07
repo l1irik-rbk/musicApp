@@ -9,7 +9,7 @@ export enum Status {
 }
 
 export enum Paths {
-  DEFAULT = '/',
+  MAIN_PAGE = '/',
   CHARTS = '/charts',
   FAQ = '/FAQ',
 }
@@ -53,7 +53,7 @@ export interface IArtistA {
   artist: IArtist;
 }
 
-interface IArtist {
+export interface IArtist {
   artist_id: number;
   artist_name: string;
   artist_country: string;
@@ -70,4 +70,14 @@ export interface ICurrentTrackLyricks {
   lyrics_id: number;
   lyrics_body: string;
   lyrics_copyright: string;
+}
+
+export interface ICurrentArtistAlbums {
+  album: {
+    album_id: number;
+    artist_name: string;
+    album_name: string;
+    album_release_date: string;
+    primary_genres: { music_genre_list: { music_genre: { music_genre_name: string } }[] };
+  };
 }
