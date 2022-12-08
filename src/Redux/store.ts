@@ -1,4 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { albumSlice } from './slices/albumSlice';
 import { currentArtistSlice } from './slices/artistSlice';
 import { chartArtistsSlice } from './slices/chartArtistsSlice';
 import { chartTracksSlice } from './slices/chartTracksSlice';
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   chartArtists: chartArtistsSlice.reducer,
   currentTrack: currentTrackSlice.reducer,
   currentArtist: currentArtistSlice.reducer,
+  currentAlbum: albumSlice.reducer,
 });
 
 export const store = configureStore({

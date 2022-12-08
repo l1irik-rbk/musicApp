@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { ICurrentArtistAlbums, Status } from '../../helpers/constantsTypes';
-import { fetchAlbums } from '../thunks/fetchAlbums';
+import { ICurrentArtistAlbums, ITrackA, Status } from '../../helpers/constantsTypes';
+import { fetchAlbumTracks } from '../thunks/fetchAlbumTracks';
 
 interface IAlbumTracks {
-  albumTracks: ICurrentArtistAlbums[];
+  albumTracks: ITrackA[];
   totalAlbumTracks: null | number;
   status: null | string;
   error: null | string;
@@ -26,18 +26,15 @@ export const albumSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchAlbums.pending, (state) => {
+    builder.addCase(fetchAlbumTracks.pending, (state) => {
       state.status = Status.PENDING;
       state.error = null;
     });
-    builder.addCase(
-      fetchAlbums.fulfilled,
-      (state, action: PayloadAction<ICurrentArtistAlbums[]>) => {
-        state.albumTracks = action.payload;
-        state.status = Status.FULFILLED;
-      }
-    );
-    builder.addCase(fetchAlbums.rejected, (state, action) => {
+    builder.addCase(fetchAlbumTracks.fulfilled, (state, action: PayloadAction<ITrackA[]>) => {
+      state.albumTracks = action.payload;
+      state.status = Status.FULFILLED;
+    });
+    builder.addCase(fetchAlbumTracks.rejected, (state, action) => {
       state.status = Status.REJECTED;
       state.error = action.payload as string;
     });

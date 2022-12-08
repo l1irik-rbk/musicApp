@@ -1,30 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { useAppSelector } from '../Redux/hooks';
-import TrackInfo from './TrackInfo';
+import TracksList from './TracksList';
 
 const Tracks = (): JSX.Element => {
-  const { tracks } = useAppSelector((state) => state.mainPage);
+  const location = useLocation();
 
-  return (
-    <>
-      {tracks.map(({ track }) => (
-        <div key={track.track_id}>
-          <Link to={`/tracks/${track.track_id}`}>
-            <TrackInfo track={track} />
-          </Link>
-          <a
-            href={`https://music.yandex.ru/search?text=${track.track_name} ${track.artist_name}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Я
-          </a>
-        </div>
-      ))}
-    </>
-  );
+  const { tracks } = useAppSelector((state) => state.mainPage);
+  const { albumTracks } = useAppSelector((state) => state.currentAlbum);
+
+  return <TracksList tracks={location.pathname.includes('/album') ? albumTracks : tracks} />;
 };
 
 export default Tracks;

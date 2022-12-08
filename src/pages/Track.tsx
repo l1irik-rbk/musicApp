@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import TrackInfo from '../components/TrackInfo';
-import { ITrack, Paths, Status } from '../helpers/constantsTypes';
+import { Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchLyrics } from '../Redux/thunks/fetchLyrics';
-import { filterTrack } from '../utils/filterTrack';
+import { fetchTrack } from '../Redux/thunks/fetchTrack';
 
 const Track = () => {
   const { trackID } = useParams();
-  const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
-  const { tracks } = useAppSelector((state) => state.mainPage);
-  const { currentTrackLyrics, status, error } = useAppSelector((state) => state.currentTrack);
-
-  const [track, setTrack] = useState<ITrack | null>(null);
+  const { currentTrackLyrics, currentTrack, status, error } = useAppSelector(
+    (state) => state.currentTrack
+  );
 
   useEffect(() => {
-    tracks.length ? setTrack(filterTrack(tracks, Number(trackID))) : navigate(Paths.MAIN_PAGE);
+    dispatch(fetchTrack(Number(trackID)));
+    dispatch(fetchLyrics(Number(trackID)));
   }, []);
-
-  useEffect(() => {
-    if (track) dispatch(fetchLyrics(Number(trackID)));
-  }, [track]);
 
   return (
     <div>
@@ -30,7 +25,7 @@ const Track = () => {
         <div>Loading...</div>
       ) : (
         <>
-          {track && <TrackInfo track={track} />}
+          {currentTrack && <TrackInfo track={currentTrack} />}
           <div>
             {currentTrackLyrics?.lyrics_body.split('\n').map((string, index) => (
               <p key={index}>{string}</p>
