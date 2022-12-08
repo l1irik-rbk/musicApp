@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import Artists from '../components/Artists';
 
 import Filters from '../components/Filters';
+import Tracks from '../components/Tracks';
 import { IOptions } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchChartArtists } from '../Redux/thunks/fetchChartArtists';
@@ -20,7 +22,7 @@ const Charts = (): JSX.Element => {
   return (
     <div>
       <Filters />
-      <div></div>
+      {searchOption?.value === 'track' ? <Tracks /> : <Artists />}
     </div>
   );
 };

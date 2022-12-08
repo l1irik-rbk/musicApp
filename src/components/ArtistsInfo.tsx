@@ -6,6 +6,7 @@ const ArtistsInfo = ({ artist }: { artist: IArtist | null }): JSX.Element => {
     <>
       {artist && (
         <>
+          {artist.artist_name}
           <ul>
             <li>Country: {artist.artist_country}</li>
             <li>

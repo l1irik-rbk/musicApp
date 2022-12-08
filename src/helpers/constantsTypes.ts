@@ -11,6 +11,7 @@ export enum Status {
 export enum Paths {
   MAIN_PAGE = '/',
   CHARTS = '/charts',
+  ALBUM = '/album',
   FAQ = '/FAQ',
 }
 

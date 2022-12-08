@@ -1,21 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Paths } from '../helpers/constantsTypes';
 
 import { useAppSelector } from '../Redux/hooks';
+import ArtistsList from './ArtistsList';
 
 const Artists = () => {
+  const location = useLocation();
+
   const { artists } = useAppSelector((state) => state.mainPage);
+  const { chartArtists } = useAppSelector((state) => state.chartArtists);
 
   return (
-    <>
-      {artists.map(({ artist }) => (
-        <div key={artist.artist_id}>
-          <Link to={`/artists/${artist.artist_id}`}>
-            <h3>{artist.artist_name}</h3>
-          </Link>
-        </div>
-      ))}
-    </>
+    <ArtistsList artists={location.pathname.includes(Paths.CHARTS) ? chartArtists : artists} />
   );
 };
 
