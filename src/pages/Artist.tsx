@@ -7,29 +7,35 @@ import { filterArtists } from '../utils/filterArtist';
 import ArtistsInfo from '../components/ArtistsInfo';
 import { fetchAlbums } from '../Redux/thunks/fetchAlbums';
 import Albums from '../components/Albums';
+import { fetchArtist } from '../Redux/thunks/fetchArtist';
 
 const Artist = () => {
   const { artistID } = useParams();
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
-  const { artists } = useAppSelector((state) => state.mainPage);
+  const { currentArtist } = useAppSelector((state) => state.currentArtist);
 
-  const [artist, setArtist] = useState<IArtist | null>(null);
+  // const [artist, setArtist] = useState<IArtist | null>(null);
+
+  // useEffect(() => {
+  //   artists.length
+  //     ? setArtist(filterArtists(artists, Number(artistID)))
+  //     : navigate(Paths.MAIN_PAGE);
+  // }, []);
+
+  // useEffect(() => {
+  //   if (artist) dispatch(fetchAlbums(Number(artistID)));
+  // }, [artist]);
 
   useEffect(() => {
-    artists.length
-      ? setArtist(filterArtists(artists, Number(artistID)))
-      : navigate(Paths.MAIN_PAGE);
+    dispatch(fetchArtist(Number(artistID)));
+    dispatch(fetchAlbums(Number(artistID)));
   }, []);
-
-  useEffect(() => {
-    if (artist) dispatch(fetchAlbums(Number(artistID)));
-  }, [artist]);
 
   return (
     <div>
-      <ArtistsInfo artist={artist} />
+      <ArtistsInfo artist={currentArtist} />
       <Albums />
     </div>
   );
