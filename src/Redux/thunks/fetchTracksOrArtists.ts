@@ -1,19 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
-import { ERROR_MESSAGE } from '../../helpers/constants';
-import { IFetchTracks, Status } from '../../helpers/constantsTypes';
+import { ERROR_MESSAGE, ITEMS_PER_PAGE, MAX_PAGE_COUNT } from '../../helpers/constants';
+import { IFetchTracksOrArtists, Status } from '../../helpers/constantsTypes';
 import { findTracksOrArtists } from '../../utils/findTracksOrArtists';
-import { setTotalTracksOrArtists } from '../slices/mainPageSlice';
+import { IMainPage, setPageCount, setTotalTracksOrArtists } from '../slices/mainPageSlice';
 
 export const fetchTracksOrArtists = createAsyncThunk(
   'mainPage/fetchTracks',
   async (
-    { searchValue, searchOption, raitingOption }: IFetchTracks,
-    { rejectWithValue, dispatch }
+    { searchValue, searchOption, raitingOption, pageNumber }: IFetchTracksOrArtists,
+    { rejectWithValue, dispatch, getState }
   ) => {
     try {
+      const {
+        mainPage: { pageCount, totalTracksOrArtists },
+      } = getState() as { mainPage: IMainPage };
+
       const response = await axios.get(
-        findTracksOrArtists(searchValue, searchOption!.value, raitingOption!.value)
+        findTracksOrArtists(searchValue, searchOption!.value, raitingOption!.value, pageNumber)
       );
       const { data } = response;
 
@@ -21,8 +25,13 @@ export const fetchTracksOrArtists = createAsyncThunk(
         throw new Error(ERROR_MESSAGE);
       }
 
-      const totalTracks: number = data.message.header.available;
-      dispatch(setTotalTracksOrArtists(totalTracks));
+      if (!pageCount || !totalTracksOrArtists) {
+        const newTotalTracks: number = data.message.header.available;
+        const newPageCount: number = Math.ceil(newTotalTracks / ITEMS_PER_PAGE);
+
+        dispatch(setTotalTracksOrArtists(newTotalTracks));
+        dispatch(setPageCount(newPageCount > MAX_PAGE_COUNT ? MAX_PAGE_COUNT : newPageCount));
+      }
 
       console.log(data.message.body.track_list);
       console.log(data.message.body.artist_list);

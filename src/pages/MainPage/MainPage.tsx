@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import Filters from '../../components/Filters';
 
 import { ENTER_BUTTON } from '../../helpers/constants';
@@ -7,25 +7,39 @@ import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 import { fetchTracksOrArtists } from '../../Redux/thunks/fetchTracksOrArtists';
 import Tracks from '../../components/Tracks';
 import Artists from '../../components/Artists';
+import Pagination from '../../components/Pagination';
+import {
+  setPageCount,
+  setPageNumber,
+  setTotalTracksOrArtists,
+} from '../../Redux/slices/mainPageSlice';
+import { setSearchValue } from '../../Redux/slices/filtersSlice';
 
 const MainPage = (): JSX.Element => {
-  const [searchValue, setSearchValue] = useState('eminem');
-
   const dispatch = useAppDispatch();
-  const { status, error } = useAppSelector((state) => state.mainPage);
-  const { raitingOption, searchOption } = useAppSelector((state) => state.filters);
+  const { status, error, pageNumber, artists, tracks } = useAppSelector((state) => state.mainPage);
+  const { raitingOption, searchOption, searchValue } = useAppSelector((state) => state.filters);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
+    dispatch(setSearchValue(e.target.value));
   };
 
   const findValue = () => {
-    dispatch(fetchTracksOrArtists({ searchValue, searchOption, raitingOption }));
+    setPageNumber(0);
+    setTotalTracksOrArtists(null);
+    setPageCount(null);
+
+    dispatch(fetchTracksOrArtists({ searchValue, searchOption, raitingOption, pageNumber }));
   };
 
   const onKeyPressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === ENTER_BUTTON)
-      dispatch(fetchTracksOrArtists({ searchValue, searchOption, raitingOption }));
+    if (e.key === ENTER_BUTTON) {
+      setPageNumber(0);
+      setTotalTracksOrArtists(null);
+      setPageCount(null);
+
+      dispatch(fetchTracksOrArtists({ searchValue, searchOption, raitingOption, pageNumber }));
+    }
   };
 
   return (
@@ -37,8 +51,13 @@ const MainPage = (): JSX.Element => {
       </div>
 
       <div>
-        <Tracks />
-        <Artists />
+        {(!!artists.length || !!tracks.length) && <Pagination />}
+        {status === Status.FULFILLED && (
+          <>
+            <Tracks />
+            <Artists />
+          </>
+        )}
         {status === Status.PENDING && <div>Loading...</div>}
         {error && <div>{error}</div>}
       </div>

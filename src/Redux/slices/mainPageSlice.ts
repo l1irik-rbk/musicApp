@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IArtistA, ITrackA, Status } from '../../helpers/constantsTypes';
 import { fetchTracksOrArtists } from '../thunks/fetchTracksOrArtists';
 
-interface IMainPage {
+export interface IMainPage {
   tracks: ITrackA[];
   artists: IArtistA[];
   totalTracksOrArtists: null | number;
+  pageCount: number | null;
+  pageNumber: number | null;
   status: null | string;
   error: null | string;
 }
@@ -16,14 +18,22 @@ const initialState: IMainPage = {
   status: null,
   error: null,
   totalTracksOrArtists: null,
+  pageCount: null,
+  pageNumber: null,
 };
 
 export const mainPageSlice = createSlice({
   name: 'mainPageSlice',
   initialState,
   reducers: {
-    setTotalTracksOrArtists: (state, action: PayloadAction<number>) => {
+    setTotalTracksOrArtists: (state, action: PayloadAction<number | null>) => {
       state.totalTracksOrArtists = action.payload;
+    },
+    setPageCount: (state, action: PayloadAction<number | null>) => {
+      state.pageCount = action.payload;
+    },
+    setPageNumber: (state, action: PayloadAction<number | null>) => {
+      state.pageNumber = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -48,4 +58,4 @@ export const mainPageSlice = createSlice({
   },
 });
 
-export const { setTotalTracksOrArtists } = mainPageSlice.actions;
+export const { setTotalTracksOrArtists, setPageCount, setPageNumber } = mainPageSlice.actions;

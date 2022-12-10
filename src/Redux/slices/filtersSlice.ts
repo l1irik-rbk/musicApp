@@ -5,6 +5,7 @@ import { IOptions, Status } from '../../helpers/constantsTypes';
 import { fetchCountries } from '../thunks/fetchCountries';
 
 interface IFilters {
+  searchValue: string;
   searchOption: SingleValue<IOptions>;
   raitingOption: SingleValue<IOptions>;
   countriesOption: SingleValue<IOptions>;
@@ -32,6 +33,7 @@ export const defaultOptions = {
 };
 
 const initialState: IFilters = {
+  searchValue: 'eminem',
   searchOption: defaultOptions.searchOption,
   raitingOption: defaultOptions.raitingOption,
   countriesOption: defaultOptions.countriesOption,
@@ -46,6 +48,9 @@ export const filtersSlice = createSlice({
   name: 'filtersSlice',
   initialState,
   reducers: {
+    setSearchValue: (state, action: PayloadAction<string>) => {
+      state.searchValue = action.payload;
+    },
     setSearchOption: (state, action: PayloadAction<SingleValue<IOptions>>) => {
       state.searchOption = action.payload;
     },
@@ -72,4 +77,5 @@ export const filtersSlice = createSlice({
   },
 });
 
-export const { setSearchOption, setRaitingOption, setCountriesOption } = filtersSlice.actions;
+export const { setSearchValue, setSearchOption, setRaitingOption, setCountriesOption } =
+  filtersSlice.actions;

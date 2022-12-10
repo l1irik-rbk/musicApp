@@ -38,3 +38,7 @@ export const ROUTES: IRoutes[] = [
   { path: 'FAQ', element: FAQ },
   { path: '*', element: NotFound },
 ];
+
+export const ITEMS_PER_PAGE = 10;
+
+export const MAX_PAGE_COUNT = 100;

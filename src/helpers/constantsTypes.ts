@@ -26,10 +26,11 @@ export interface IOptions {
   label: string;
 }
 
-export interface IFetchTracks {
+export interface IFetchTracksOrArtists {
   searchValue: string;
   searchOption: SingleValue<IOptions>;
   raitingOption: SingleValue<IOptions>;
+  pageNumber: number | null;
 }
 
 export interface ICountry {
