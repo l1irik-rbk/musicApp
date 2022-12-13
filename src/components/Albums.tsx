@@ -4,11 +4,13 @@ import { Status } from '../helpers/constantsTypes';
 import { useAppSelector } from '../Redux/hooks';
 
 const Albums = () => {
-  const { currentArtistAlbums, status, error } = useAppSelector((state) => state.currentArtist);
+  const { currentArtistAlbums, statusAlbums, errorAlbums } = useAppSelector(
+    (state) => state.currentArtist
+  );
 
   return (
     <div>
-      {!!currentArtistAlbums.length && (
+      {!!currentArtistAlbums.length && statusAlbums === Status.FULFILLED && (
         <>
           <h5>Albums:</h5>
           {currentArtistAlbums.map(({ album }) => (
@@ -34,8 +36,8 @@ const Albums = () => {
         </>
       )}
 
-      {status === Status.PENDING && <div>Loading...</div>}
-      {error && <div>{error}</div>}
+      {statusAlbums === Status.PENDING && <div>Loading...</div>}
+      {errorAlbums && <div>{errorAlbums}</div>}
     </div>
   );
 };

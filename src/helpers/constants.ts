@@ -24,7 +24,7 @@ export const ENTER_BUTTON = 'Enter';
 export const ERROR_MESSAGE = 'Oops! Something went wrong!';
 
 export const MENU_LINKS = [
-  { path: Paths.MAIN_PAGE, linkName: 'Default' },
+  { path: Paths.MAIN_PAGE, linkName: '' },
   { path: Paths.CHARTS, linkName: 'Charts' },
   { path: Paths.FAQ, linkName: 'FAQ' },
 ];

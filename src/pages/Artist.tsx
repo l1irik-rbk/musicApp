@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
@@ -6,21 +6,62 @@ import ArtistsInfo from '../components/ArtistsInfo';
 import { fetchAlbums } from '../Redux/thunks/fetchAlbums';
 import Albums from '../components/Albums';
 import { fetchArtist } from '../Redux/thunks/fetchArtist';
+import { Status } from '../helpers/constantsTypes';
+import Pagination from '../components/Pagination';
+import {
+  setAlbumsPageCount,
+  setAlbumsPageNumber,
+  setCurrentArtist,
+  setCurrentArtistAlbums,
+  setTotalAlbums,
+} from '../Redux/slices/artistSlice';
 
 const Artist = () => {
+  const [disabledBtn, setDisabledBtn] = useState(false);
   const { artistID } = useParams();
 
   const dispatch = useAppDispatch();
-  const { currentArtist } = useAppSelector((state) => state.currentArtist);
+  const {
+    currentArtist,
+    errorAlbums,
+    statusArtist,
+    errorArtist,
+    albumsPageNumber: pageNumber,
+    currentArtistAlbums,
+  } = useAppSelector((state) => state.currentArtist);
 
   useEffect(() => {
+    dispatch(setCurrentArtistAlbums([]));
+    dispatch(setCurrentArtist(null));
+    dispatch(setAlbumsPageNumber(0));
+    dispatch(setTotalAlbums(null));
+    dispatch(setAlbumsPageCount(null));
+
     dispatch(fetchArtist(Number(artistID)));
-    dispatch(fetchAlbums(Number(artistID)));
   }, []);
+
+  const showAlbums = () => {
+    dispatch(fetchAlbums({ artistID, pageNumber }));
+    setDisabledBtn(true);
+  };
 
   return (
     <div>
-      <ArtistsInfo artist={currentArtist} />
+      {errorArtist && <div>{errorArtist}</div>}
+      {errorAlbums && <div>{errorAlbums}</div>}
+
+      {statusArtist === Status.PENDING ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <ArtistsInfo artist={currentArtist} />
+          <button onClick={showAlbums} disabled={disabledBtn}>
+            Show albums
+          </button>
+        </>
+      )}
+
+      {!!currentArtistAlbums.length && <Pagination artistID={currentArtist?.artist_id} />}
       <Albums />
     </div>
   );

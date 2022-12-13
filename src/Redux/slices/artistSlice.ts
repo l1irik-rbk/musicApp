@@ -4,59 +4,85 @@ import { IArtist, ICurrentArtistAlbums, Status } from '../../helpers/constantsTy
 import { fetchAlbums } from '../thunks/fetchAlbums';
 import { fetchArtist } from '../thunks/fetchArtist';
 
-interface ICurrentArtist {
+export interface ICurrentArtist {
   currentArtistAlbums: ICurrentArtistAlbums[];
   currentArtist: IArtist | null;
   totalAlbums: null | number;
-  status: null | string;
-  error: null | string;
+  albumsPageCount: null | number;
+  albumsPageNumber: null | number;
+  statusAlbums: null | string;
+  errorAlbums: null | string;
+  statusArtist: null | string;
+  errorArtist: null | string;
 }
 
 const initialState: ICurrentArtist = {
   currentArtistAlbums: [],
   currentArtist: null,
   totalAlbums: null,
-  status: null,
-  error: null,
+  albumsPageCount: null,
+  albumsPageNumber: null,
+  statusAlbums: null,
+  errorAlbums: null,
+  statusArtist: null,
+  errorArtist: null,
 };
 
 export const currentArtistSlice = createSlice({
   name: 'currentArtistSlice',
   initialState,
   reducers: {
-    setTotalAlbums: (state, action: PayloadAction<number>) => {
+    setTotalAlbums: (state, action: PayloadAction<number | null>) => {
       state.totalAlbums = action.payload;
+    },
+    setAlbumsPageCount: (state, action: PayloadAction<number | null>) => {
+      state.albumsPageCount = action.payload;
+    },
+    setAlbumsPageNumber: (state, action: PayloadAction<number | null>) => {
+      state.albumsPageNumber = action.payload;
+    },
+    setCurrentArtistAlbums: (state, action: PayloadAction<ICurrentArtistAlbums[]>) => {
+      state.currentArtistAlbums = action.payload;
+    },
+    setCurrentArtist: (state, action: PayloadAction<null>) => {
+      state.currentArtist = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAlbums.pending, (state) => {
-      state.status = Status.PENDING;
-      state.error = null;
+      state.statusAlbums = Status.PENDING;
+      state.errorAlbums = null;
     });
     builder.addCase(
       fetchAlbums.fulfilled,
       (state, action: PayloadAction<ICurrentArtistAlbums[]>) => {
         state.currentArtistAlbums = action.payload;
-        state.status = Status.FULFILLED;
+        state.statusAlbums = Status.FULFILLED;
       }
     );
     builder.addCase(fetchAlbums.rejected, (state, action) => {
-      state.status = Status.REJECTED;
-      state.error = action.payload as string;
+      state.statusAlbums = Status.REJECTED;
+      state.errorAlbums = action.payload as string;
     });
     builder.addCase(fetchArtist.pending, (state) => {
-      state.status = Status.PENDING;
-      state.error = null;
+      state.statusArtist = Status.PENDING;
+      state.errorArtist = null;
     });
     builder.addCase(fetchArtist.fulfilled, (state, action: PayloadAction<IArtist>) => {
       state.currentArtist = action.payload;
-      state.status = Status.FULFILLED;
+      state.statusArtist = Status.FULFILLED;
     });
     builder.addCase(fetchArtist.rejected, (state, action) => {
-      state.status = Status.REJECTED;
-      state.error = action.payload as string;
+      state.statusArtist = Status.REJECTED;
+      state.errorArtist = action.payload as string;
     });
   },
 });
 
-export const { setTotalAlbums } = currentArtistSlice.actions;
+export const {
+  setTotalAlbums,
+  setAlbumsPageCount,
+  setAlbumsPageNumber,
+  setCurrentArtistAlbums,
+  setCurrentArtist,
+} = currentArtistSlice.actions;

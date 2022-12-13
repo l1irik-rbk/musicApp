@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ITrackA } from '../helpers/constantsTypes';
-import TrackInfo from './TrackInfo';
 
 const TracksList = ({ tracks }: { tracks: ITrackA[] | null }) => {
   return (
@@ -10,7 +9,9 @@ const TracksList = ({ tracks }: { tracks: ITrackA[] | null }) => {
         tracks.map(({ track }) => (
           <div key={track.track_id}>
             <Link to={`/tracks/${track.track_id}`}>
-              <TrackInfo track={track} />
+              <h3>
+                {track.track_name} - {track.artist_name}
+              </h3>
             </Link>
             <a
               href={`https://music.yandex.ru/search?text=${track.track_name} ${track.artist_name}`}

@@ -3,9 +3,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ITrackA, Status } from '../../helpers/constantsTypes';
 import { fetchAlbumTracks } from '../thunks/fetchAlbumTracks';
 
-interface IAlbumTracks {
+export interface IAlbumTracks {
   albumTracks: ITrackA[];
   totalAlbumTracks: null | number;
+  albumTracksPageCount: null | number;
+  albumTracksPageNumber: null | number;
   status: null | string;
   error: null | string;
 }
@@ -13,6 +15,8 @@ interface IAlbumTracks {
 const initialState: IAlbumTracks = {
   albumTracks: [],
   totalAlbumTracks: null,
+  albumTracksPageCount: null,
+  albumTracksPageNumber: null,
   status: null,
   error: null,
 };
@@ -23,6 +27,12 @@ export const albumSlice = createSlice({
   reducers: {
     setTotalAlbumTracks: (state, action: PayloadAction<number>) => {
       state.totalAlbumTracks = action.payload;
+    },
+    setAlbumTracksPageCount: (state, action: PayloadAction<number | null>) => {
+      state.albumTracksPageCount = action.payload;
+    },
+    setAlbumTracksPageNumber: (state, action: PayloadAction<number | null>) => {
+      state.albumTracksPageNumber = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -41,4 +51,5 @@ export const albumSlice = createSlice({
   },
 });
 
-export const { setTotalAlbumTracks } = albumSlice.actions;
+export const { setTotalAlbumTracks, setAlbumTracksPageCount, setAlbumTracksPageNumber } =
+  albumSlice.actions;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Filters from '../../components/Filters';
 
 import { ENTER_BUTTON } from '../../helpers/constants';
@@ -9,9 +9,11 @@ import Tracks from '../../components/Tracks';
 import Artists from '../../components/Artists';
 import Pagination from '../../components/Pagination';
 import {
+  setArtists,
   setPageCount,
   setPageNumber,
   setTotalTracksOrArtists,
+  setTracks,
 } from '../../Redux/slices/mainPageSlice';
 import { setSearchValue } from '../../Redux/slices/filtersSlice';
 
@@ -25,25 +27,29 @@ const MainPage = (): JSX.Element => {
   };
 
   const findValue = () => {
-    setPageNumber(0);
-    setTotalTracksOrArtists(null);
-    setPageCount(null);
+    dispatch(setTracks([]));
+    dispatch(setArtists([]));
+    dispatch(setPageNumber(0));
+    dispatch(setTotalTracksOrArtists(null));
+    dispatch(setPageCount(null));
 
     dispatch(fetchTracksOrArtists({ searchValue, searchOption, raitingOption, pageNumber }));
   };
 
   const onKeyPressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === ENTER_BUTTON) {
-      setPageNumber(0);
-      setTotalTracksOrArtists(null);
-      setPageCount(null);
+      dispatch(setTracks([]));
+      dispatch(setArtists([]));
+      dispatch(setPageNumber(0));
+      dispatch(setTotalTracksOrArtists(null));
+      dispatch(setPageCount(null));
 
       dispatch(fetchTracksOrArtists({ searchValue, searchOption, raitingOption, pageNumber }));
     }
   };
 
   return (
-    <div>
+    <>
       <Filters />
       <div>
         <input value={searchValue} onChange={handleSearch} onKeyDown={onKeyPressed} />
@@ -61,7 +67,7 @@ const MainPage = (): JSX.Element => {
         {status === Status.PENDING && <div>Loading...</div>}
         {error && <div>{error}</div>}
       </div>
-    </div>
+    </>
   );
 };
 

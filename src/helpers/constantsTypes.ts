@@ -12,6 +12,7 @@ export enum Paths {
   MAIN_PAGE = '/',
   CHARTS = '/charts',
   ALBUM = '/album',
+  ARTISTS = '/artists',
   FAQ = '/FAQ',
 }
 
@@ -82,4 +83,18 @@ export interface ICurrentArtistAlbums {
     album_release_date: string;
     primary_genres: { music_genre_list: { music_genre: { music_genre_name: string } }[] };
   };
+}
+
+export interface Ipagination {
+  artistID?: number;
+}
+
+export interface IFetchAlbums {
+  artistID: number | string | null | undefined;
+  pageNumber: number | null;
+}
+
+export interface IFetchAlbumTracks {
+  albumID: number | string | null | undefined;
+  pageNumber: number | null | undefined;
 }

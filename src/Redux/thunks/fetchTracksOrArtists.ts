@@ -3,6 +3,7 @@ import axios, { AxiosError } from 'axios';
 import { ERROR_MESSAGE, ITEMS_PER_PAGE, MAX_PAGE_COUNT } from '../../helpers/constants';
 import { IFetchTracksOrArtists, Status } from '../../helpers/constantsTypes';
 import { findTracksOrArtists } from '../../utils/findTracksOrArtists';
+import { setTotalPageCount } from '../../utils/setTotalPageCount';
 import { IMainPage, setPageCount, setTotalTracksOrArtists } from '../slices/mainPageSlice';
 
 export const fetchTracksOrArtists = createAsyncThunk(
@@ -28,9 +29,10 @@ export const fetchTracksOrArtists = createAsyncThunk(
       if (!pageCount || !totalTracksOrArtists) {
         const newTotalTracks: number = data.message.header.available;
         const newPageCount: number = Math.ceil(newTotalTracks / ITEMS_PER_PAGE);
+        const pageCount = setTotalPageCount(newPageCount);
 
         dispatch(setTotalTracksOrArtists(newTotalTracks));
-        dispatch(setPageCount(newPageCount > MAX_PAGE_COUNT ? MAX_PAGE_COUNT : newPageCount));
+        dispatch(setPageCount(pageCount));
       }
 
       console.log(data.message.body.track_list);

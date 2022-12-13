@@ -35,6 +35,12 @@ export const mainPageSlice = createSlice({
     setPageNumber: (state, action: PayloadAction<number | null>) => {
       state.pageNumber = action.payload;
     },
+    setTracks: (state, action: PayloadAction<ITrackA[]>) => {
+      state.tracks = action.payload;
+    },
+    setArtists: (state, action: PayloadAction<IArtistA[]>) => {
+      state.artists = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchTracksOrArtists.pending, (state) => {
@@ -58,4 +64,5 @@ export const mainPageSlice = createSlice({
   },
 });
 
-export const { setTotalTracksOrArtists, setPageCount, setPageNumber } = mainPageSlice.actions;
+export const { setTotalTracksOrArtists, setPageCount, setPageNumber, setTracks, setArtists } =
+  mainPageSlice.actions;
