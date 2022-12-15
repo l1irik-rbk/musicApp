@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { useLocation } from 'react-router-dom';
 
@@ -16,17 +16,12 @@ const Pagination = ({ artistID }: Ipagination) => {
   const { pageCount, pageNumber } = useAppSelector((state) => state.mainPage);
   const { searchValue, searchOption, raitingOption } = useAppSelector((state) => state.filters);
   const { albumsPageCount, albumsPageNumber } = useAppSelector((state) => state.currentArtist);
-  const {} = useAppSelector((state) => state.currentAlbum);
 
   const path = location.pathname;
-  console.log(albumsPageCount, albumsPageNumber);
-  useEffect(() => {
-    console.log(albumsPageCount, albumsPageNumber);
-  }, [albumsPageCount, albumsPageNumber]);
 
   const handlePageClick = (selectedItem: { selected: number }) => {
     const pageNumber: number = selectedItem.selected;
-    console.log('pageNumber', pageNumber);
+
     if (path.includes(Paths.ARTISTS)) {
       dispatch(setAlbumsPageNumber(albumsPageNumber));
       dispatch(fetchAlbums({ artistID, pageNumber }));

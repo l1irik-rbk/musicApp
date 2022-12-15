@@ -15,7 +15,7 @@ export const fetchLyrics = createAsyncThunk(
         throw new Error(ERROR_MESSAGE);
       }
 
-      console.log(data.message.body.lyrics);
+      console.log(data.message.body);
       return data.message.body.lyrics;
     } catch (error) {
       return rejectWithValue((error as AxiosError).message);

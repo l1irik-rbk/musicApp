@@ -23,7 +23,6 @@ const Artist = () => {
   const dispatch = useAppDispatch();
   const {
     currentArtist,
-    errorAlbums,
     statusArtist,
     errorArtist,
     albumsPageNumber: pageNumber,
@@ -42,13 +41,12 @@ const Artist = () => {
 
   const showAlbums = () => {
     dispatch(fetchAlbums({ artistID, pageNumber }));
-    setDisabledBtn(true);
+    setDisabledBtn(!disabledBtn);
   };
 
   return (
     <div>
       {errorArtist && <div>{errorArtist}</div>}
-      {errorAlbums && <div>{errorAlbums}</div>}
 
       {statusArtist === Status.PENDING ? (
         <div>Loading...</div>

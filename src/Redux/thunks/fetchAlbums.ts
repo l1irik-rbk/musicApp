@@ -30,7 +30,7 @@ export const fetchAlbums = createAsyncThunk(
         const newTotalAlbums: number = data.message.header.available;
         const newAlbumsPageCount: number = Math.ceil(newTotalAlbums / ITEMS_PER_PAGE);
         const pageCount = setTotalPageCount(newAlbumsPageCount);
-        console.log('fetchAlbums', newTotalAlbums, newAlbumsPageCount, pageCount);
+
         dispatch(setAlbumsPageNumber(0));
         dispatch(setTotalAlbums(newTotalAlbums));
         dispatch(setAlbumsPageCount(pageCount));

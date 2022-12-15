@@ -76,13 +76,15 @@ export interface ICurrentTrackLyricks {
 }
 
 export interface ICurrentArtistAlbums {
-  album: {
-    album_id: number;
-    artist_name: string;
-    album_name: string;
-    album_release_date: string;
-    primary_genres: { music_genre_list: { music_genre: { music_genre_name: string } }[] };
-  };
+  album: IAlbum;
+}
+
+export interface IAlbum {
+  album_id: number;
+  artist_name: string;
+  album_name: string;
+  album_release_date: string;
+  primary_genres: { music_genre_list: { music_genre: { music_genre_name: string } }[] };
 }
 
 export interface Ipagination {
@@ -92,9 +94,4 @@ export interface Ipagination {
 export interface IFetchAlbums {
   artistID: number | string | null | undefined;
   pageNumber: number | null;
-}
-
-export interface IFetchAlbumTracks {
-  albumID: number | string | null | undefined;
-  pageNumber: number | null | undefined;
 }

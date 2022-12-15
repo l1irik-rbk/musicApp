@@ -1,35 +1,56 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import AlbumInfo from '../components/AlbumInfo';
 import Tracks from '../components/Tracks';
 import { Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
+import { fetchAlbum } from '../Redux/thunks/fetchAlbum';
 import { fetchAlbumTracks } from '../Redux/thunks/fetchAlbumTracks';
 
 const Album = () => {
+  const [disabledBtn, setDisabledBtn] = useState(false);
+
   const { albumID } = useParams();
   const dispatch = useAppDispatch();
+
   const {
-    status,
-    error,
-    albumTracks,
-    albumTracksPageNumber: pageNumber,
+    currentAlbum,
+    statusAlbumTracks,
+    errorAlbumTracks,
+    statusCurrentAlbum,
+    errorCurrentAlbum,
   } = useAppSelector((state) => state.currentAlbum);
 
   useEffect(() => {
-    dispatch(fetchAlbumTracks({ albumID, pageNumber }));
+    dispatch(fetchAlbum(albumID as string));
   }, []);
+
+  const showAlbumTracks = () => {
+    dispatch(fetchAlbumTracks(albumID));
+    setDisabledBtn(!disabledBtn);
+  };
 
   return (
     <div>
-      {status === Status.PENDING ? (
+      {errorAlbumTracks && <div>{errorAlbumTracks}</div>}
+      {errorCurrentAlbum && <div>{errorCurrentAlbum}</div>}
+
+      {statusCurrentAlbum === Status.PENDING && (!errorAlbumTracks || !errorCurrentAlbum) ? (
         <div>Loading...</div>
       ) : (
         <>
-          Album {albumID}
-          <Tracks />
+          <AlbumInfo album={currentAlbum} />
+          <button onClick={showAlbumTracks} disabled={disabledBtn}>
+            Show album tracks
+          </button>
         </>
       )}
-      {error && <div>{error}</div>}
+
+      {statusAlbumTracks === Status.PENDING && (!errorAlbumTracks || !errorCurrentAlbum) ? (
+        <div>Loading...</div>
+      ) : (
+        <Tracks />
+      )}
     </div>
   );
 };
