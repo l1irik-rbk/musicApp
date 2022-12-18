@@ -14,8 +14,6 @@ body {
   padding: 0;
   color: hsl(200, 15%, 8%);
   background-color: hsl(0, 0%, 98%);
-
-
 }
 
 ul {

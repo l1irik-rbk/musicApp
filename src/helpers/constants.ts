@@ -1,7 +1,7 @@
 import Track from '../pages/Track';
 import Charts from '../pages/Charts';
 import FAQ from '../pages/FAQ';
-import MainPage from '../pages/MainPage/MainPage';
+import MainPage from '../pages/MainPage';
 import NotFound from '../pages/NotFound';
 import { IRoutes, Paths } from './constantsTypes';
 import Artist from '../pages/Artist';
