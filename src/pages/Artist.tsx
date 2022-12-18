@@ -15,6 +15,7 @@ import {
   setCurrentArtistAlbums,
   setTotalAlbums,
 } from '../Redux/slices/artistSlice';
+import Spinner from '../components/Spinner';
 
 const Artist = () => {
   const [disabledBtn, setDisabledBtn] = useState(false);
@@ -49,7 +50,7 @@ const Artist = () => {
       {errorArtist && <div>{errorArtist}</div>}
 
       {statusArtist === Status.PENDING ? (
-        <div>Loading...</div>
+        <Spinner />
       ) : (
         <>
           <ArtistsInfo artist={currentArtist} />

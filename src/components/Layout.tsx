@@ -24,4 +24,5 @@ export const Main = styled.main`
   padding: 0 10px;
   margin: 0 auto;
   width: 100%;
+  position: relative;
 `;

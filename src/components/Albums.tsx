@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Status } from '../helpers/constantsTypes';
 import { useAppSelector } from '../Redux/hooks';
 import AlbumInfo from './AlbumInfo';
+import Spinner from './Spinner';
 
 const Albums = () => {
   const { currentArtistAlbums, statusAlbums, errorAlbums } = useAppSelector(
@@ -24,7 +25,7 @@ const Albums = () => {
         </>
       )}
 
-      {statusAlbums === Status.PENDING && <div>Loading...</div>}
+      {statusAlbums === Status.PENDING && <Spinner />}
       {errorAlbums && <div>{errorAlbums}</div>}
     </div>
   );

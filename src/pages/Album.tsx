@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import AlbumInfo from '../components/AlbumInfo';
+import Spinner from '../components/Spinner';
 import Tracks from '../components/Tracks';
 import { Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
@@ -36,7 +37,7 @@ const Album = () => {
       {errorCurrentAlbum && <div>{errorCurrentAlbum}</div>}
 
       {statusCurrentAlbum === Status.PENDING && (!errorAlbumTracks || !errorCurrentAlbum) ? (
-        <div>Loading...</div>
+        <Spinner />
       ) : (
         <>
           <AlbumInfo album={currentAlbum} />
@@ -47,7 +48,7 @@ const Album = () => {
       )}
 
       {statusAlbumTracks === Status.PENDING && (!errorAlbumTracks || !errorCurrentAlbum) ? (
-        <div>Loading...</div>
+        <Spinner />
       ) : (
         <Tracks />
       )}

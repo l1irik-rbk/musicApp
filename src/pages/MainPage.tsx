@@ -8,6 +8,7 @@ import Artists from '../components/Artists';
 import Pagination from '../components/Pagination';
 
 import Search from '../components/Search';
+import Spinner from '../components/Spinner';
 
 const MainPage = (): JSX.Element => {
   const { status, error, artists, tracks } = useAppSelector((state) => state.mainPage);
@@ -25,7 +26,8 @@ const MainPage = (): JSX.Element => {
             <Artists />
           </>
         )}
-        {status === Status.PENDING && <div>Loading...</div>}
+        <Spinner />
+        {status === Status.PENDING && <Spinner />}
         {error && <div>{error}</div>}
       </div>
     </>

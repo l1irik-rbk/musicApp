@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Artists from '../components/Artists';
 
 import Filters from '../components/Filters';
+import Spinner from '../components/Spinner';
 import Tracks from '../components/Tracks';
 import { IOptions, Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
@@ -29,8 +30,8 @@ const Charts = (): JSX.Element => {
 
       {statusTracks === Status.FULFILLED && <>{searchOption?.value === 'track' && <Tracks />}</>}
       {statusArtists === Status.FULFILLED && <>{searchOption?.value === 'artist' && <Artists />}</>}
-      {statusArtists === Status.PENDING && <div>Loading...</div>}
-      {statusTracks === Status.PENDING && <div>Loading...</div>}
+      {statusArtists === Status.PENDING && <Spinner />}
+      {statusTracks === Status.PENDING && <Spinner />}
       {errorArtists && <div>{errorArtists}</div>}
       {errorTracks && <div>{errorTracks}</div>}
     </div>

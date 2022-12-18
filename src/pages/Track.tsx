@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Spinner from '../components/Spinner';
 import TrackInfo from '../components/TrackInfo';
 import { Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
@@ -28,7 +29,7 @@ const Track = () => {
   return (
     <div>
       {statusTrack === Status.PENDING ? (
-        <div>Loading...</div>
+        <Spinner />
       ) : (
         <>
           {currentTrack && <TrackInfo track={currentTrack} />}
@@ -39,7 +40,7 @@ const Track = () => {
       )}
 
       {statusLyrics === Status.PENDING ? (
-        <div>Loading...</div>
+        <Spinner />
       ) : (
         <div>
           {currentTrackLyrics?.lyrics_body.split('\n').map((string, index) => (
