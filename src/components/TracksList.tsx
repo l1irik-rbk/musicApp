@@ -29,7 +29,7 @@ const Title = styled.h3`
   }
 `;
 
-const TracksList = ({ tracks }: { tracks: ITrackA[] | null }) => {
+const TracksList = ({ tracks }: { tracks: ITrackA[] | null }): JSX.Element => {
   return (
     <>
       {tracks &&

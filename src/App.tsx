@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import { ROUTES } from './helpers/constants';
 
-function App() {
+const App = (): JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -18,6 +18,6 @@ function App() {
       </Route>
     </Routes>
   );
-}
+};
 
 export default App;

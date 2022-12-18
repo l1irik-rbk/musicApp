@@ -51,7 +51,7 @@ export const InputContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-const Search = () => {
+const Search = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { pageNumber } = useAppSelector((state) => state.mainPage);
   const { raitingOption, searchOption, searchValue } = useAppSelector((state) => state.filters);

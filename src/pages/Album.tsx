@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchAlbum } from '../Redux/thunks/fetchAlbum';
 import { fetchAlbumTracks } from '../Redux/thunks/fetchAlbumTracks';
 
-const Album = () => {
+const Album = (): JSX.Element => {
   const [disabledBtn, setDisabledBtn] = useState(false);
 
   const { albumID } = useParams();

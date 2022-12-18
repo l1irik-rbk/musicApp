@@ -18,7 +18,7 @@ import {
 import Spinner from '../components/Spinner';
 import Error from '../components/Error';
 
-const Artist = () => {
+const Artist = (): JSX.Element => {
   const [disabledBtn, setDisabledBtn] = useState(false);
   const { artistID } = useParams();
 

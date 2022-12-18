@@ -27,7 +27,7 @@ export const Paragraph = styled.p`
   margin-bottom: 5px;
 `;
 
-const Track = () => {
+const Track = (): JSX.Element => {
   const [disabledBtn, setDisabledBtn] = useState(false);
   const { trackID } = useParams();
 

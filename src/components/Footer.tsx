@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from './Header';
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <StyledFooter>
       <Container>Footer</Container>

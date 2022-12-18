@@ -9,7 +9,7 @@ import { setPageNumber } from '../Redux/slices/mainPageSlice';
 import { fetchAlbums } from '../Redux/thunks/fetchAlbums';
 import { fetchTracksOrArtists } from '../Redux/thunks/fetchTracksOrArtists';
 
-const Pagination = ({ artistID }: Ipagination) => {
+const Pagination = ({ artistID }: Ipagination): JSX.Element => {
   const location = useLocation();
 
   const dispatch = useAppDispatch();

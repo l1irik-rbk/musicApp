@@ -5,7 +5,7 @@ import { Paths } from '../helpers/constantsTypes';
 import { useAppSelector } from '../Redux/hooks';
 import ArtistsList from './ArtistsList';
 
-const Artists = () => {
+const Artists = (): JSX.Element => {
   const location = useLocation();
 
   const { artists } = useAppSelector((state) => state.mainPage);

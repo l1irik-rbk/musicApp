@@ -6,7 +6,7 @@ import AlbumInfo from './AlbumInfo';
 import Error from './Error';
 import Spinner from './Spinner';
 
-const Albums = () => {
+const Albums = (): JSX.Element => {
   const { currentArtistAlbums, statusAlbums, errorAlbums } = useAppSelector(
     (state) => state.currentArtist
   );
