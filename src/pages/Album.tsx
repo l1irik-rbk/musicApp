@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import AlbumInfo from '../components/AlbumInfo';
+import Error from '../components/Error';
 import Spinner from '../components/Spinner';
 import Tracks from '../components/Tracks';
 import { Status } from '../helpers/constantsTypes';
@@ -33,8 +34,8 @@ const Album = () => {
 
   return (
     <div>
-      {errorAlbumTracks && <div>{errorAlbumTracks}</div>}
-      {errorCurrentAlbum && <div>{errorCurrentAlbum}</div>}
+      {errorAlbumTracks && <Error error={errorAlbumTracks} />}
+      {errorCurrentAlbum && <Error error={errorCurrentAlbum} />}
 
       {statusCurrentAlbum === Status.PENDING && (!errorAlbumTracks || !errorCurrentAlbum) ? (
         <Spinner />

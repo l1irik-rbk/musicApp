@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Error from '../components/Error';
 import Spinner from '../components/Spinner';
 import TrackInfo from '../components/TrackInfo';
 import { Status } from '../helpers/constantsTypes';
@@ -49,8 +50,8 @@ const Track = () => {
         </div>
       )}
 
-      {errorTrack && <div>{errorTrack}</div>}
-      {errorLyrics && <div>{errorLyrics}</div>}
+      {errorTrack && <Error error={errorTrack} />}
+      {errorLyrics && <Error error={errorLyrics} />}
     </div>
   );
 };

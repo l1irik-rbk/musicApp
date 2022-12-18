@@ -35,7 +35,6 @@ const Pagination = ({ artistID }: Ipagination) => {
 
   return (
     <div>
-      {}
       <ReactPaginate
         pageCount={
           path.includes(Paths.ARTISTS) ? (albumsPageCount as number) : (pageCount as number)

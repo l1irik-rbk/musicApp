@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Artists from '../components/Artists';
+import Error from '../components/Error';
 
 import Filters from '../components/Filters';
 import Spinner from '../components/Spinner';
@@ -32,8 +33,8 @@ const Charts = (): JSX.Element => {
       {statusArtists === Status.FULFILLED && <>{searchOption?.value === 'artist' && <Artists />}</>}
       {statusArtists === Status.PENDING && <Spinner />}
       {statusTracks === Status.PENDING && <Spinner />}
-      {errorArtists && <div>{errorArtists}</div>}
-      {errorTracks && <div>{errorTracks}</div>}
+      {errorArtists && <Error error={errorArtists} />}
+      {errorTracks && <Error error={errorTracks} />}
     </div>
   );
 };

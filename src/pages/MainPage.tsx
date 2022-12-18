@@ -9,6 +9,7 @@ import Pagination from '../components/Pagination';
 
 import Search from '../components/Search';
 import Spinner from '../components/Spinner';
+import Error from '../components/Error';
 
 const MainPage = (): JSX.Element => {
   const { status, error, artists, tracks } = useAppSelector((state) => state.mainPage);
@@ -18,18 +19,18 @@ const MainPage = (): JSX.Element => {
       <Filters />
       <Search />
 
-      <div>
-        {(!!artists.length || !!tracks.length) && <Pagination />}
-        {status === Status.FULFILLED && (
-          <>
-            <Tracks />
-            <Artists />
-          </>
-        )}
-        <Spinner />
-        {status === Status.PENDING && <Spinner />}
-        {error && <div>{error}</div>}
-      </div>
+      {(!!artists.length || !!tracks.length) && <Pagination />}
+      {status === Status.FULFILLED && (
+        <div>
+          <Tracks />
+          <Artists />
+        </div>
+      )}
+
+      {/* <Spinner /> */}
+
+      {status === Status.PENDING && <Spinner />}
+      {error && <Error error={error} />}
     </>
   );
 };
