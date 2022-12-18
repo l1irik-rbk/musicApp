@@ -20,7 +20,7 @@ const Layout = (): JSX.Element => {
 export default Layout;
 
 export const Main = styled.main`
-  max-width: 1440px;
+  max-width: 1040px;
   padding: 0 10px;
   margin: 0 auto;
   width: 100%;

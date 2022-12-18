@@ -1,3 +1,6 @@
+import { FaSpotify, FaYandex } from 'react-icons/fa';
+import { SiApplemusic } from 'react-icons/si';
+
 import Track from '../pages/Track';
 import Charts from '../pages/Charts';
 import FAQ from '../pages/FAQ';
@@ -39,6 +42,27 @@ export const ROUTES: IRoutes[] = [
   { path: '*', element: NotFound },
 ];
 
-export const ITEMS_PER_PAGE = 10;
+export const ITEMS_PER_PAGE = 20;
 
 export const MAX_PAGE_COUNT = 100;
+
+export const MUSIC_LINKS = [
+  {
+    href: 'https://music.yandex.ru/search?text=',
+    target: '_blank',
+    rel: 'noreferrer',
+    content: FaYandex,
+  },
+  {
+    href: 'https://open.spotify.com/search/',
+    target: '_blank',
+    rel: 'noreferrer',
+    content: FaSpotify,
+  },
+  {
+    href: 'https://music.apple.com/us/search?term=',
+    target: '_blank',
+    rel: 'noreferrer',
+    content: SiApplemusic,
+  },
+];

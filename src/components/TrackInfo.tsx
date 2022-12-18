@@ -1,6 +1,45 @@
 import React from 'react';
+import { IoHeartOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
 import { ITrack } from '../helpers/constantsTypes';
+import MusicLinks from './MusicLinks';
+
+const Title = styled.h2`
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+
+  @media (min-width: 767px) {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+`;
+
+const TrackItems = styled.ul`
+  display: flex;
+  flex-direction: column;
+`;
+
+const TrackItem = styled.li`
+  font-size: 20px;
+  margin-bottom: 5px;
+
+  & span {
+    font-weight: 700;
+
+    & svg {
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  @media (min-width: 767px) {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+`;
 
 const TrackInfo = ({ track }: { track: ITrack | null }): JSX.Element => {
   console.log(track);
@@ -8,15 +47,25 @@ const TrackInfo = ({ track }: { track: ITrack | null }): JSX.Element => {
     <>
       {track && (
         <>
-          <h3>
+          <Title>
             {track.track_name} - {track.artist_name}
-          </h3>
-          <ul>
+          </Title>
+          <TrackItems>
             <Link to={`/album/${track.album_id}`}>
-              <li>Album: {track.album_name}</li>
+              <TrackItem>
+                <span> Album:</span> {track.album_name}
+              </TrackItem>
             </Link>
-            <li>{track.num_favourite} people added to favorites</li>
-          </ul>
+            <TrackItem>
+              <span>
+                Likes <IoHeartOutline />:
+              </span>{' '}
+              {track.num_favourite}
+            </TrackItem>
+            <TrackItem>
+              <MusicLinks trackName={track.track_name} />
+            </TrackItem>
+          </TrackItems>
         </>
       )}
     </>

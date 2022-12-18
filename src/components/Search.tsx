@@ -29,7 +29,7 @@ export const Input = styled.input.attrs({
   color: inherit;
 `;
 
-export const Button = styled.button`
+export const SearchButton = styled.button`
   margin: 0;
   padding: 0;
   cursor: pointer;
@@ -48,6 +48,7 @@ export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 `;
 
 const Search = () => {
@@ -84,9 +85,9 @@ const Search = () => {
   return (
     <InputContainer>
       <Input value={searchValue} onChange={handleSearch} onKeyDown={onKeyPressed} />
-      <Button onClick={findValue}>
+      <SearchButton onClick={findValue}>
         <IoSearchOutline />
-      </Button>
+      </SearchButton>
     </InputContainer>
   );
 };

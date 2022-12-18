@@ -58,7 +58,7 @@ const ListItem = styled.li`
 `;
 
 export const Container = styled.div`
-  max-width: 1440px;
+  max-width: 1040px;
   padding: 0 10px;
   margin: 0 auto;
   color: hsl(0, 0%, 100%);
