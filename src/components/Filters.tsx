@@ -20,7 +20,7 @@ export const selectStyles: StylesConfig<IOptions, IsMulti> = {
   control: (provided) => ({
     ...provided,
     cursor: 'pointer',
-    backgroundColor: 'inherit',
+    backgroundColor: '#fff',
     color: 'inherit',
     padding: '0.25rem',
     width: '300px',

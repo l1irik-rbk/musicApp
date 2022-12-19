@@ -37,11 +37,12 @@ const Track = (): JSX.Element => {
 
   const showLiriks = () => {
     setDisabledBtn(!disabledBtn);
+    console.log('trackID', trackID);
     dispatch(fetchLyrics(Number(trackID)));
   };
 
   useEffect(() => {
-    dispatch(setLyrics(null));
+    if (currentTrackLyrics?.lyrics_body.length) dispatch(setLyrics(null));
     dispatch(fetchTrack(Number(trackID)));
   }, []);
 

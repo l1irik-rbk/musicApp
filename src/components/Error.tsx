@@ -7,8 +7,12 @@ const StyledError = styled.div`
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  font-size: 40px;
+  font-size: 25px;
   text-align: center;
+
+  @media (min-width: 767px) {
+    font-size: 40px;
+  }
 `;
 
 const Error = ({ error }: { error: string | null }): JSX.Element => {

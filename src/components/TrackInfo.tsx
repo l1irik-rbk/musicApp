@@ -20,11 +20,17 @@ const Title = styled.h2`
 const TrackItems = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 `;
 
 const TrackItem = styled.li`
   font-size: 20px;
   margin-bottom: 5px;
+  transition: all 0.5s;
+
+  &:first-child:hover {
+    color: hsl(0deg 1% 60%);
+  }
 
   & span {
     font-weight: 700;
@@ -51,11 +57,11 @@ const TrackInfo = ({ track }: { track: ITrack | null }): JSX.Element => {
             {track.track_name} - {track.artist_name}
           </Title>
           <TrackItems>
-            <Link to={`/album/${track.album_id}`}>
-              <TrackItem>
+            <TrackItem>
+              <Link to={`/album/${track.album_id}`}>
                 <span> Album:</span> {track.album_name}
-              </TrackItem>
-            </Link>
+              </Link>
+            </TrackItem>
             <TrackItem>
               <span>
                 Likes <IoHeartOutline />:

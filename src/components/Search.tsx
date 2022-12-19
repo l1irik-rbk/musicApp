@@ -34,10 +34,16 @@ export const SearchButton = styled.button`
   padding: 0;
   cursor: pointer;
   border: none;
-  background-color: transparent;
+  background-color: #fff;
   border: 1px solid hsl(0, 0%, 80%);
   border-left: none;
   padding: 5.5px 5px;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: hsl(0deg 0% 88%);
+    border-color: hsl(0deg 0% 88%);
+  }
 
   & svg {
     font-size: 30px;
