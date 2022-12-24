@@ -2,13 +2,13 @@ import React from 'react';
 
 import { Status } from '../helpers/constantsTypes';
 import { useAppSelector } from '../Redux/hooks';
-import Filters from '../components/Filters';
-import Tracks from '../components/Tracks';
-import Artists from '../components/Artists';
-import Pagination from '../components/Pagination';
-import Search from '../components/Search';
-import Spinner from '../components/Spinner';
-import Error from '../components/Error';
+import Filters from '../components/Controls/Filters';
+import Artists from '../components/Artist/Artists';
+import Pagination from '../components/Controls/Pagination';
+import Search from '../components/Controls/Search';
+import Tracks from '../components/Track/Tracks';
+import Spinner from '../components/UI/Spinner';
+import Error from '../components/UI/Error';
 import * as C from '../theme/UI/StyledContainers';
 
 const MainPage = (): JSX.Element => {

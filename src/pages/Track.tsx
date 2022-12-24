@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import Error from '../components/Error';
-import Spinner from '../components/Spinner';
-import TrackInfo from '../components/TrackInfo';
-import TrackLyrics from '../components/TrackLyrics';
+import Error from '../components/UI/Error';
+import Spinner from '../components/UI/Spinner';
+import TrackInfo from '../components/Track/TrackInfo';
+import TrackLyrics from '../components/Track/TrackLyrics';
 import { Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { setLyrics } from '../Redux/slices/trackSlice';
 import { fetchLyrics } from '../Redux/thunks/fetchLyrics';
 import { fetchTrack } from '../Redux/thunks/fetchTrack';
+
 import * as A from '../theme/UI/StyledMain';
 
 const Track = (): JSX.Element => {

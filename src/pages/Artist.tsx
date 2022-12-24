@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
-import ArtistsInfo from '../components/ArtistsInfo';
+import ArtistsInfo from '../components/Artist/ArtistsInfo';
 import { fetchAlbums } from '../Redux/thunks/fetchAlbums';
-import Albums from '../components/Albums';
+import Albums from '../components/Album/Albums';
 import { fetchArtist } from '../Redux/thunks/fetchArtist';
 import { Status } from '../helpers/constantsTypes';
-import Pagination from '../components/Pagination';
+import Pagination from '../components/Controls/Pagination';
 import {
   setAlbumsPageCount,
   setAlbumsPageNumber,
@@ -15,8 +15,8 @@ import {
   setCurrentArtistAlbums,
   setTotalAlbums,
 } from '../Redux/slices/artistSlice';
-import Spinner from '../components/Spinner';
-import Error from '../components/Error';
+import Spinner from '../components/UI/Spinner';
+import Error from '../components/UI/Error';
 
 import * as A from '../theme/UI/StyledMain';
 

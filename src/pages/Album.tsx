@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import AlbumInfo from '../components/AlbumInfo';
-import Error from '../components/Error';
-import Spinner from '../components/Spinner';
-import Tracks from '../components/Tracks';
+import AlbumInfo from '../components/Album/AlbumInfo';
+import Error from '../components/UI/Error';
+import Spinner from '../components/UI/Spinner';
+import Tracks from '../components/Track/Tracks';
 import { Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchAlbum } from '../Redux/thunks/fetchAlbum';

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Status } from '../helpers/constantsTypes';
-import { useAppSelector } from '../Redux/hooks';
+import { Status } from '../../helpers/constantsTypes';
+import { useAppSelector } from '../../Redux/hooks';
 import AlbumInfo from './AlbumInfo';
-import Error from './Error';
-import Spinner from './Spinner';
+import Error from '../UI/Error';
+import Spinner from '../UI/Spinner';
 
-import * as C from '../theme/UI/StyledContainers';
-import * as A from '../theme/UI/StyledMain';
+import * as C from '../../theme/UI/StyledContainers';
+import * as A from '../../theme/UI/StyledMain';
 
 const Albums = (): JSX.Element => {
   const { currentArtistAlbums, currentArtist, statusAlbums, errorAlbums } = useAppSelector(

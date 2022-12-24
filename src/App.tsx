@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Layout from './components/Layout';
+import Layout from './components/UI/Layout';
 import { ROUTES } from './helpers/constants';
 
 const App = (): JSX.Element => {

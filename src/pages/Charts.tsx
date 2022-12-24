@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 
-import Artists from '../components/Artists';
-import Error from '../components/Error';
-import Filters from '../components/Filters';
-import Spinner from '../components/Spinner';
-import Tracks from '../components/Tracks';
+import Artists from '../components/Artist/Artists';
+import Error from '../components/UI/Error';
+import Filters from '../components/Controls/Filters';
+import Spinner from '../components/UI/Spinner';
+import Tracks from '../components/Track/Tracks';
 import { IOptions, Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchChartArtists } from '../Redux/thunks/fetchChartArtists';
 import { fetchChartTracks } from '../Redux/thunks/fetchChartTracks';
+
 import * as C from '../theme/UI/StyledContainers';
 
 const Charts = (): JSX.Element => {

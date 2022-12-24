@@ -3,12 +3,12 @@ import ReactPaginate from 'react-paginate';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Ipagination, Paths } from '../helpers/constantsTypes';
-import { useAppDispatch, useAppSelector } from '../Redux/hooks';
-import { setAlbumsPageNumber } from '../Redux/slices/artistSlice';
-import { setPageNumber } from '../Redux/slices/mainPageSlice';
-import { fetchAlbums } from '../Redux/thunks/fetchAlbums';
-import { fetchTracksOrArtists } from '../Redux/thunks/fetchTracksOrArtists';
+import { Ipagination, Paths } from '../../helpers/constantsTypes';
+import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
+import { setAlbumsPageNumber } from '../../Redux/slices/artistSlice';
+import { setPageNumber } from '../../Redux/slices/mainPageSlice';
+import { fetchAlbums } from '../../Redux/thunks/fetchAlbums';
+import { fetchTracksOrArtists } from '../../Redux/thunks/fetchTracksOrArtists';
 
 const StyledReactPaginate = styled(ReactPaginate)`
   display: flex;

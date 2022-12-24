@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { MUSIC_LINKS } from '../helpers/constants';
-import * as S from '../theme/Components/StyledMusicLinks';
-import * as C from '../theme/UI/StyledContainers';
+import { MUSIC_LINKS } from '../../helpers/constants';
+import * as S from '../../theme/Components/StyledMusicLinks';
+import * as C from '../../theme/UI/StyledContainers';
 
 const MusicLinks = ({ trackName }: { trackName: string }): JSX.Element => {
   return (

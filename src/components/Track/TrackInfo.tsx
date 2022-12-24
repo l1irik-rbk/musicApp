@@ -3,8 +3,8 @@ import { IoHeartOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 import MusicLinks from './MusicLinks';
-import { ITrack } from '../helpers/constantsTypes';
-import * as A from '../theme/UI/StyledMain';
+import { ITrack } from '../../helpers/constantsTypes';
+import * as A from '../../theme/UI/StyledMain';
 
 const TrackInfo = ({ track }: { track: ITrack | null }): JSX.Element => {
   console.log(track);

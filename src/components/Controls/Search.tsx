@@ -2,17 +2,17 @@ import React from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 import styled from 'styled-components';
 
-import { ENTER_BUTTON } from '../helpers/constants';
-import { useAppDispatch, useAppSelector } from '../Redux/hooks';
-import { setSearchValue } from '../Redux/slices/filtersSlice';
+import { ENTER_BUTTON } from '../../helpers/constants';
+import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
+import { setSearchValue } from '../../Redux/slices/filtersSlice';
 import {
   setArtists,
   setPageCount,
   setPageNumber,
   setTotalTracksOrArtists,
   setTracks,
-} from '../Redux/slices/mainPageSlice';
-import { fetchTracksOrArtists } from '../Redux/thunks/fetchTracksOrArtists';
+} from '../../Redux/slices/mainPageSlice';
+import { fetchTracksOrArtists } from '../../Redux/thunks/fetchTracksOrArtists';
 
 export const Input = styled.input.attrs({
   type: 'search',

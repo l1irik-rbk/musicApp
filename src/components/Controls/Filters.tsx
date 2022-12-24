@@ -3,16 +3,16 @@ import { useLocation } from 'react-router-dom';
 import Select, { SingleValue, StylesConfig } from 'react-select';
 import styled from 'styled-components';
 
-import { IOptions, Paths } from '../helpers/constantsTypes';
-import { useAppDispatch, useAppSelector } from '../Redux/hooks';
+import { IOptions, Paths } from '../../helpers/constantsTypes';
+import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 import {
   raitingOptions,
   searchOptions,
   setCountriesOption,
   setRaitingOption,
   setSearchOption,
-} from '../Redux/slices/filtersSlice';
-import { fetchCountries } from '../Redux/thunks/fetchCountries';
+} from '../../Redux/slices/filtersSlice';
+import { fetchCountries } from '../../Redux/thunks/fetchCountries';
 
 type IsMulti = false;
 
