@@ -5,6 +5,9 @@ export const BaseTheme: IBaseTheme = {
     mainBgColor: 'hsl(0, 0%, 98%)',
     darkBgColor: 'hsl(207,26%,17%)',
     hoverCardColor: 'hsl(0deg 1% 60%)',
+    controlsColor: 'hsl(0, 0%, 80%)',
+    disabledControlsColor: 'hsl(207deg 7% 82%)',
+    hoverControlsColor: 'hsl(0deg 0% 88%)',
   },
   container: {
     containerMaxWidth: { maxWidth: '1040px' },
@@ -20,6 +23,9 @@ export interface IBaseTheme {
     mainBgColor: string;
     darkBgColor: string;
     hoverCardColor: string;
+    controlsColor: string;
+    disabledControlsColor: string;
+    hoverControlsColor: string;
   };
   container: {
     containerMaxWidth: { maxWidth: string };

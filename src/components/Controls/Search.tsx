@@ -1,6 +1,5 @@
 import React from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
-import styled from 'styled-components';
 
 import { ENTER_BUTTON } from '../../helpers/constants';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
@@ -14,48 +13,8 @@ import {
 } from '../../Redux/slices/mainPageSlice';
 import { fetchTracksOrArtists } from '../../Redux/thunks/fetchTracksOrArtists';
 
-export const Input = styled.input.attrs({
-  type: 'search',
-  placeholder: 'Search for a track or artist...',
-})`
-  font-family: inherit;
-  font-size: inherit;
-  width: 260px;
-  height: 46px;
-  border-radius: 0;
-  border: 1px solid red;
-  padding: 2px 9px;
-  border-color: hsl(0, 0%, 80%);
-  color: inherit;
-`;
-
-export const SearchButton = styled.button`
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  border: none;
-  background-color: #fff;
-  border: 1px solid hsl(0, 0%, 80%);
-  border-left: none;
-  padding: 5.5px 5px;
-  transition: all 0.5s;
-
-  &:hover {
-    background-color: hsl(0deg 0% 88%);
-    border-color: hsl(0deg 0% 88%);
-  }
-
-  & svg {
-    font-size: 30px;
-  }
-`;
-
-export const InputContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-`;
+import * as C from '../../theme/UI/StyledContainers';
+import * as S from '../../theme/Components/StyledSearch';
 
 const Search = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -89,12 +48,12 @@ const Search = (): JSX.Element => {
   };
 
   return (
-    <InputContainer>
-      <Input value={searchValue} onChange={handleSearch} onKeyDown={onKeyPressed} />
-      <SearchButton onClick={findValue}>
+    <C.InputContainer>
+      <S.Input value={searchValue} onChange={handleSearch} onKeyDown={onKeyPressed} />
+      <S.SearchButton onClick={findValue}>
         <IoSearchOutline />
-      </SearchButton>
-    </InputContainer>
+      </S.SearchButton>
+    </C.InputContainer>
   );
 };
 
