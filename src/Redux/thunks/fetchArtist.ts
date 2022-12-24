@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 
 import { ERROR_MESSAGE } from '../../helpers/constants';
 import { Status } from '../../helpers/constantsTypes';
-import { getArtist } from '../../utils/getArtist';
+import { getArtist } from '../../services/getArtist';
 
 export const fetchArtist = createAsyncThunk(
   'artists/fetchArtist',

@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 
 import { ERROR_MESSAGE } from '../../helpers/constants';
 import { Status } from '../../helpers/constantsTypes';
-import { getTrack } from '../../utils/getTrack';
+import { getTrack } from '../../services/getTrack';
 
 export const fetchTrack = createAsyncThunk(
   'tracks/fetchTrack',
