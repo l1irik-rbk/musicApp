@@ -1,22 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Container } from './Header';
+
+import * as C from '../theme/StyledContainers';
+import * as S from '../theme/StyledFooter';
 
 const Footer = (): JSX.Element => {
   return (
-    <StyledFooter>
-      <Container>Footer</Container>
-    </StyledFooter>
+    <S.StyledFooter>
+      <C.Container>Footer</C.Container>
+    </S.StyledFooter>
   );
 };
 
 export default Footer;
-
-const StyledFooter = styled.footer`
-  margin-top: 20px;
-  font-size: 14px;
-  line-height: 16px;
-  padding: 20px 0;
-  background-color: hsl(207, 26%, 17%);
-  text-align: center;
-`;

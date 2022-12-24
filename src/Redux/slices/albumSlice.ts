@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IAlbum, ICurrentArtistAlbums, ITrackA, Status } from '../../helpers/constantsTypes';
+import { IAlbum, ITrackA, Status } from '../../helpers/constantsTypes';
 import { fetchAlbum } from '../thunks/fetchAlbum';
 import { fetchAlbumTracks } from '../thunks/fetchAlbumTracks';
 
@@ -25,7 +25,14 @@ const initialState: IAlbumTracks = {
 export const albumSlice = createSlice({
   name: 'albumSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    setAlbumTracks: (state, action: PayloadAction<ITrackA[]>) => {
+      state.albumTracks = action.payload;
+    },
+    setCurrentAlbum: (state, action: PayloadAction<null | IAlbum>) => {
+      state.currentAlbum = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchAlbumTracks.pending, (state) => {
       state.statusAlbumTracks = Status.PENDING;
@@ -54,4 +61,4 @@ export const albumSlice = createSlice({
   },
 });
 
-export const {} = albumSlice.actions;
+export const { setAlbumTracks, setCurrentAlbum } = albumSlice.actions;

@@ -1,80 +1,34 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+
 import { IoMusicalNotes } from 'react-icons/io5';
-import styled from 'styled-components';
 
 import { MENU_LINKS } from '../helpers/constants';
 import { Paths } from '../helpers/constantsTypes';
+import * as C from '../theme/StyledContainers';
+import * as S from '../theme/StyledHeader';
 
 const Header = (): JSX.Element => {
   return (
-    <StyledHeader>
-      <Container>
-        <StyledMenu>
-          <ItemsList>
+    <S.Header>
+      <C.Container>
+        <S.Menu>
+          <S.ItemsList>
             {MENU_LINKS.map(({ path, linkName }) => (
-              <ListItem key={path}>
+              <S.ListItem key={path}>
                 {path === Paths.MAIN_PAGE ? (
-                  <CustomLink to={path}>
+                  <S.CustomLink to={path}>
                     <IoMusicalNotes />
-                  </CustomLink>
+                  </S.CustomLink>
                 ) : (
-                  <CustomLink to={path}>{linkName}</CustomLink>
+                  <S.CustomLink to={path}>{linkName}</S.CustomLink>
                 )}
-              </ListItem>
+              </S.ListItem>
             ))}
-          </ItemsList>
-        </StyledMenu>
-      </Container>
-    </StyledHeader>
+          </S.ItemsList>
+        </S.Menu>
+      </C.Container>
+    </S.Header>
   );
 };
 
 export default Header;
-
-const StyledHeader = styled.header`
-  font-size: 20px;
-  line-height: 24px;
-  padding: 20px 0;
-  margin-bottom: 20px;
-  background-color: hsl(207, 26%, 17%);
-`;
-
-const StyledMenu = styled.nav``;
-
-const ItemsList = styled.ul`
-  display: flex;
-  align-items: center;
-
-  & li + li {
-    margin-left: 15px;
-  }
-`;
-
-const ListItem = styled.li`
-  &:first-child a.active {
-    border-bottom: 2px solid hsl(207, 26%, 17%);
-  }
-`;
-
-export const Container = styled.div`
-  max-width: 1040px;
-  padding: 0 10px;
-  margin: 0 auto;
-  color: hsl(0, 0%, 100%);
-`;
-
-export const CustomLink = styled(NavLink)`
-  padding-bottom: 2px;
-  border-bottom: 2px solid hsl(207, 26%, 17%);
-  transition: all 0.5s ease-out;
-
-  &:hover {
-    color: inherit;
-    border-bottom: 2px solid hsl(0, 0%, 98%);
-  }
-
-  &.active {
-    border-bottom: 2px solid hsl(0, 0%, 98%);
-  }
-`;

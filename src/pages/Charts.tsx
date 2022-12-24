@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
+
 import Artists from '../components/Artists';
 import Error from '../components/Error';
-
 import Filters from '../components/Filters';
 import Spinner from '../components/Spinner';
 import Tracks from '../components/Tracks';
@@ -9,6 +9,7 @@ import { IOptions, Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchChartArtists } from '../Redux/thunks/fetchChartArtists';
 import { fetchChartTracks } from '../Redux/thunks/fetchChartTracks';
+import * as C from '../theme/StyledContainers';
 
 const Charts = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -26,7 +27,7 @@ const Charts = (): JSX.Element => {
   }, [searchOption, countriesOption]);
 
   return (
-    <div>
+    <C.ContentContainer>
       <Filters />
 
       {statusTracks === Status.FULFILLED && <>{searchOption?.value === 'track' && <Tracks />}</>}
@@ -35,7 +36,7 @@ const Charts = (): JSX.Element => {
       {statusTracks === Status.PENDING && <Spinner />}
       {errorArtists && <Error error={errorArtists} />}
       {errorTracks && <Error error={errorTracks} />}
-    </div>
+    </C.ContentContainer>
   );
 };
 

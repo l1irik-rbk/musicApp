@@ -1,43 +1,23 @@
 import React from 'react';
 
-import styled from 'styled-components';
 import { MUSIC_LINKS } from '../helpers/constants';
-
-const MusicLink = styled.a`
-  & svg {
-    font-size: 1rem;
-  }
-
-  @media (min-width: 767px) {
-    & svg {
-      font-size: 20px;
-    }
-  }
-`;
-
-const MusicLinksContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  & a + a {
-    margin-left: 10px;
-  }
-`;
+import * as S from '../theme/Components/StyledMusicLinks';
+import * as C from '../theme/StyledContainers';
 
 const MusicLinks = ({ trackName }: { trackName: string }): JSX.Element => {
   return (
-    <MusicLinksContainer>
+    <C.MusicLinksContainer>
       {MUSIC_LINKS.map((link, index) => (
-        <MusicLink
+        <S.MusicLink
           href={`${link.href}${trackName}`}
           target={link.target}
           rel={link.rel}
           key={index}
         >
           {<link.content />}
-        </MusicLink>
+        </S.MusicLink>
       ))}
-    </MusicLinksContainer>
+    </C.MusicLinksContainer>
   );
 };
 

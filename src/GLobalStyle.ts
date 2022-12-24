@@ -12,8 +12,8 @@ export const GLobalStyle = createGlobalStyle`
 body {
   margin: 0;
   padding: 0;
-  color: hsl(200, 15%, 8%);
-  background-color: hsl(0, 0%, 98%);
+  color: ${({ theme }) => theme.colors.mainTextColor};
+  background-color: ${({ theme }) => theme.colors.mainBgColor};
 }
 
 ul {

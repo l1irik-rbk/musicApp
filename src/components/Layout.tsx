@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import styled from 'styled-components';
+
+import * as C from '../theme/StyledContainers';
 import Footer from './Footer';
 
 import Header from './Header';
@@ -9,20 +10,12 @@ const Layout = (): JSX.Element => {
   return (
     <>
       <Header />
-      <Main>
+      <C.Main>
         <Outlet />
-      </Main>
+      </C.Main>
       <Footer />
     </>
   );
 };
 
 export default Layout;
-
-export const Main = styled.main`
-  max-width: 1040px;
-  padding: 0 10px;
-  margin: 0 auto;
-  width: 100%;
-  position: relative;
-`;

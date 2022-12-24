@@ -1,51 +1,10 @@
 import React from 'react';
 import { IoHeartOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
-import { ITrack } from '../helpers/constantsTypes';
 import MusicLinks from './MusicLinks';
-
-const Title = styled.h2`
-  font-size: 30px;
-  text-align: center;
-  margin-bottom: 10px;
-
-  @media (min-width: 767px) {
-    font-size: 35px;
-    margin-bottom: 20px;
-  }
-`;
-
-const TrackItems = styled.ul`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
-
-const TrackItem = styled.li`
-  font-size: 20px;
-  margin-bottom: 5px;
-  transition: all 0.5s;
-
-  &:first-child:hover {
-    color: hsl(0deg 1% 60%);
-  }
-
-  & span {
-    font-weight: 700;
-
-    & svg {
-      position: relative;
-      top: 3px;
-    }
-  }
-
-  @media (min-width: 767px) {
-    font-size: 25px;
-    margin-bottom: 10px;
-  }
-`;
+import { ITrack } from '../helpers/constantsTypes';
+import * as A from '../theme/StyledMain';
 
 const TrackInfo = ({ track }: { track: ITrack | null }): JSX.Element => {
   console.log(track);
@@ -53,25 +12,25 @@ const TrackInfo = ({ track }: { track: ITrack | null }): JSX.Element => {
     <>
       {track && (
         <>
-          <Title>
+          <A.PageTitle>
             {track.track_name} - {track.artist_name}
-          </Title>
-          <TrackItems>
-            <TrackItem>
+          </A.PageTitle>
+          <A.PageItems>
+            <A.PageItem>
               <Link to={`/album/${track.album_id}`}>
                 <span> Album:</span> {track.album_name}
               </Link>
-            </TrackItem>
-            <TrackItem>
+            </A.PageItem>
+            <A.PageItem>
               <span>
                 Likes <IoHeartOutline />:
               </span>{' '}
               {track.num_favourite}
-            </TrackItem>
-            <TrackItem>
+            </A.PageItem>
+            <A.PageItem>
               <MusicLinks trackName={track.track_name} />
-            </TrackItem>
-          </TrackItems>
+            </A.PageItem>
+          </A.PageItems>
         </>
       )}
     </>

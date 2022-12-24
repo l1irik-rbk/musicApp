@@ -1,34 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import { Status } from '../helpers/constantsTypes';
 import { useAppSelector } from '../Redux/hooks';
 import AlbumInfo from './AlbumInfo';
 import Error from './Error';
 import Spinner from './Spinner';
 
+import * as C from '../theme/StyledContainers';
+import * as A from '../theme/StyledMain';
+
 const Albums = (): JSX.Element => {
-  const { currentArtistAlbums, statusAlbums, errorAlbums } = useAppSelector(
+  const { currentArtistAlbums, currentArtist, statusAlbums, errorAlbums } = useAppSelector(
     (state) => state.currentArtist
   );
+  console.log('currentArtist', currentArtist);
 
   return (
-    <div>
+    <>
       {!!currentArtistAlbums.length && statusAlbums === Status.FULFILLED && (
         <>
-          <h5>Albums:</h5>
-          {currentArtistAlbums.map(({ album }) => (
-            <div key={album.album_id}>
-              <Link to={`/album/${album.album_id}`}>
+          <A.PageTitle>{currentArtist!.artist_name} albums</A.PageTitle>
+          <C.ContentContainer>
+            {currentArtistAlbums.map(({ album }) => (
+              <A.Card key={album.album_id}>
                 <AlbumInfo album={album} />
-              </Link>
-            </div>
-          ))}
+              </A.Card>
+            ))}
+          </C.ContentContainer>
         </>
       )}
 
       {statusAlbums === Status.PENDING && <Spinner />}
       {errorAlbums && <Error error={errorAlbums} />}
-    </div>
+    </>
   );
 };
 

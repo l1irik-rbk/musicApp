@@ -1,24 +1,38 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { IAlbum } from '../helpers/constantsTypes';
+import * as A from '../theme/StyledMain';
 
 const AlbumInfo = ({ album }: { album: IAlbum | null }): JSX.Element => {
-  console.log('AlbumInfo', album);
   return (
     <>
       {album && (
         <>
-          <p>Album name: {album.album_name}</p>
-          <p>Release_date: {album.album_release_date}</p>
+          <A.PageItems>
+            <A.PageItem>
+              <Link to={`/album/${album.album_id}`}>
+                <span>Album:</span> {album.album_name}
+              </Link>
+            </A.PageItem>
+            <A.PageItem>
+              <span>Release date:</span> {album.album_release_date}
+            </A.PageItem>
+          </A.PageItems>
+
           {!!album.primary_genres.music_genre_list.length && (
             <>
-              <h6>Genres:</h6>
-              <ul>
-                {album.primary_genres.music_genre_list.map((genre) => (
-                  <li key={genre.music_genre.music_genre_name}>
+              <A.PageSubTitle textAlign={'start'} fontWeight={'700'}>
+                Genres:
+              </A.PageSubTitle>
+              <A.PageItems flexDirection={'row'} justifyContent={'flex-start'}>
+                {album.primary_genres.music_genre_list.map((genre, index) => (
+                  <A.PageItem key={genre.music_genre.music_genre_name}>
                     {genre.music_genre.music_genre_name}
-                  </li>
+                    {album.primary_genres.music_genre_list.length - 1 === index ? '' : ','}
+                  </A.PageItem>
                 ))}
-              </ul>
+              </A.PageItems>
             </>
           )}
         </>

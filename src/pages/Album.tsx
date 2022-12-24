@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import AlbumInfo from '../components/AlbumInfo';
 import Error from '../components/Error';
 import Spinner from '../components/Spinner';
@@ -8,6 +9,9 @@ import { Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchAlbum } from '../Redux/thunks/fetchAlbum';
 import { fetchAlbumTracks } from '../Redux/thunks/fetchAlbumTracks';
+import * as A from '../theme/StyledMain';
+import * as C from '../theme/StyledContainers';
+import { setAlbumTracks, setCurrentAlbum } from '../Redux/slices/albumSlice';
 
 const Album = (): JSX.Element => {
   const [disabledBtn, setDisabledBtn] = useState(false);
@@ -24,6 +28,9 @@ const Album = (): JSX.Element => {
   } = useAppSelector((state) => state.currentAlbum);
 
   useEffect(() => {
+    dispatch(setAlbumTracks([]));
+    dispatch(setCurrentAlbum(null));
+
     dispatch(fetchAlbum(albumID as string));
   }, []);
 
@@ -42,16 +49,18 @@ const Album = (): JSX.Element => {
       ) : (
         <>
           <AlbumInfo album={currentAlbum} />
-          <button onClick={showAlbumTracks} disabled={disabledBtn}>
+          <A.Button onClick={showAlbumTracks} disabled={disabledBtn}>
             Show album tracks
-          </button>
+          </A.Button>
         </>
       )}
 
       {statusAlbumTracks === Status.PENDING && (!errorAlbumTracks || !errorCurrentAlbum) ? (
         <Spinner />
       ) : (
-        <Tracks />
+        <C.ContentContainer>
+          <Tracks />
+        </C.ContentContainer>
       )}
     </div>
   );
