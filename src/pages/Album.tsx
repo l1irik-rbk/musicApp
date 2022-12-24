@@ -9,9 +9,9 @@ import { Status } from '../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchAlbum } from '../Redux/thunks/fetchAlbum';
 import { fetchAlbumTracks } from '../Redux/thunks/fetchAlbumTracks';
-import * as A from '../theme/StyledMain';
-import * as C from '../theme/StyledContainers';
 import { setAlbumTracks, setCurrentAlbum } from '../Redux/slices/albumSlice';
+import * as A from '../theme/UI/StyledMain';
+import * as C from '../theme/UI/StyledContainers';
 
 const Album = (): JSX.Element => {
   const [disabledBtn, setDisabledBtn] = useState(false);

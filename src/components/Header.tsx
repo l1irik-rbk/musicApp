@@ -4,8 +4,8 @@ import { IoMusicalNotes } from 'react-icons/io5';
 
 import { MENU_LINKS } from '../helpers/constants';
 import { Paths } from '../helpers/constantsTypes';
-import * as C from '../theme/StyledContainers';
-import * as S from '../theme/StyledHeader';
+import * as C from '../theme/UI/StyledContainers';
+import * as S from '../theme/UI/StyledHeader';
 
 const Header = (): JSX.Element => {
   return (

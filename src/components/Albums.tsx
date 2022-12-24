@@ -6,8 +6,8 @@ import AlbumInfo from './AlbumInfo';
 import Error from './Error';
 import Spinner from './Spinner';
 
-import * as C from '../theme/StyledContainers';
-import * as A from '../theme/StyledMain';
+import * as C from '../theme/UI/StyledContainers';
+import * as A from '../theme/UI/StyledMain';
 
 const Albums = (): JSX.Element => {
   const { currentArtistAlbums, currentArtist, statusAlbums, errorAlbums } = useAppSelector(

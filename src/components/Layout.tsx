@@ -1,10 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import * as C from '../theme/StyledContainers';
 import Footer from './Footer';
-
 import Header from './Header';
+
+import * as C from '../theme/UI/StyledContainers';
 
 const Layout = (): JSX.Element => {
   return (

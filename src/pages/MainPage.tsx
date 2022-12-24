@@ -9,7 +9,7 @@ import Pagination from '../components/Pagination';
 import Search from '../components/Search';
 import Spinner from '../components/Spinner';
 import Error from '../components/Error';
-import * as C from '../theme/StyledContainers';
+import * as C from '../theme/UI/StyledContainers';
 
 const MainPage = (): JSX.Element => {
   const { status, error, artists, tracks } = useAppSelector((state) => state.mainPage);

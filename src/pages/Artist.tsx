@@ -17,7 +17,8 @@ import {
 } from '../Redux/slices/artistSlice';
 import Spinner from '../components/Spinner';
 import Error from '../components/Error';
-import { Button } from '../theme/StyledMain';
+
+import * as A from '../theme/UI/StyledMain';
 
 const Artist = (): JSX.Element => {
   const [disabledBtn, setDisabledBtn] = useState(false);
@@ -56,9 +57,9 @@ const Artist = (): JSX.Element => {
       ) : (
         <>
           <ArtistsInfo artist={currentArtist} />
-          <Button onClick={showAlbums} disabled={disabledBtn}>
+          <A.Button onClick={showAlbums} disabled={disabledBtn}>
             Show albums
-          </Button>
+          </A.Button>
         </>
       )}
 
