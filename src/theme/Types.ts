@@ -14,4 +14,6 @@ export interface IPageItems {
 
 export interface IContentContainer {
   alignItems?: string;
+  marginB?: string;
+  gap?: string;
 }

@@ -21,10 +21,12 @@ export const ContentContainer = styled.div<IContentContainer>`
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.7rem;
+  gap: ${({ gap }) => gap || '0.7rem'};
   align-items: ${({ alignItems }) => alignItems || 'stretch'};
+  margin-bottom: ${({ marginB }) => marginB || '0'};
 
   @media (min-width: 767px) {
-    gap: 1rem;
+    gap: ${({ gap }) => gap || '1rem'};
   }
 `;
 
@@ -35,11 +37,4 @@ export const MusicLinksContainer = styled.div`
   & a + a {
     margin-left: 10px;
   }
-`;
-
-export const InputContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
 `;

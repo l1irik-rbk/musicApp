@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Select, { SingleValue, StylesConfig } from 'react-select';
-import styled from 'styled-components';
+import Select, { SingleValue } from 'react-select';
 
 import { IOptions, Paths } from '../../helpers/constantsTypes';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
@@ -14,31 +13,8 @@ import {
 } from '../../Redux/slices/filtersSlice';
 import { fetchCountries } from '../../Redux/thunks/fetchCountries';
 
-type IsMulti = false;
-
-export const selectStyles: StylesConfig<IOptions, IsMulti> = {
-  control: (provided) => ({
-    ...provided,
-    cursor: 'pointer',
-    backgroundColor: '#fff',
-    color: 'inherit',
-    padding: '0.25rem',
-    width: '300px',
-    borderRadius: 'none',
-  }),
-  option: (provided) => ({
-    ...provided,
-    cursor: 'pointer',
-  }),
-};
-
-const Controls = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 20px;
-`;
+import * as S from '../../theme/Components/Controls/StyledFilters';
+import * as C from '../../theme/Components/UI/StyledContainers';
 
 const Filters = (): JSX.Element => {
   const location = useLocation();
@@ -68,9 +44,9 @@ const Filters = (): JSX.Element => {
   };
 
   return (
-    <Controls>
+    <C.ContentContainer marginB="20px">
       <Select
-        styles={selectStyles}
+        styles={S.SelectStyles}
         options={searchOptions}
         value={searchOption}
         onChange={handleSearchOption}
@@ -79,7 +55,7 @@ const Filters = (): JSX.Element => {
 
       {location.pathname !== Paths.CHARTS && (
         <Select
-          styles={selectStyles}
+          styles={S.SelectStyles}
           options={raitingOptions}
           value={raitingOption}
           onChange={handleRaitingOption}
@@ -89,14 +65,14 @@ const Filters = (): JSX.Element => {
 
       {location.pathname === Paths.CHARTS && (
         <Select
-          styles={selectStyles}
+          styles={S.SelectStyles}
           options={countriesOptions as IOptions[]}
           value={countriesOption}
           onChange={handleCountriesOption}
           noOptionsMessage={() => error}
         />
       )}
-    </Controls>
+    </C.ContentContainer>
   );
 };
 
