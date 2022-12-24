@@ -39,4 +39,10 @@ export const CustomLink = styled(NavLink)`
   &.active {
     border-bottom: 2px solid ${({ theme }) => theme.colors.lightColor};
   }
+
+  & svg {
+    font-size: 24px;
+    position: relative;
+    top: 3px;
+  }
 `;
