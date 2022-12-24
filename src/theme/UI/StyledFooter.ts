@@ -8,3 +8,15 @@ export const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.darkBgColor};
   text-align: center;
 `;
+
+export const FooterText = styled.p`
+  line-height: 20px;
+`;
+
+export const FooterLink = styled.a``;
+
+export const FooterImage = styled.img`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+`;

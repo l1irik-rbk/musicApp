@@ -11,3 +11,7 @@ export interface IPageItems {
   flexDirection?: string;
   justifyContent?: string;
 }
+
+export interface IContentContainer {
+  alignItems?: string;
+}

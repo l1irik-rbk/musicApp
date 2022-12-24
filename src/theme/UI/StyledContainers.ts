@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IContentContainer } from '../Types';
 
 export const Main = styled.main`
   max-width: ${({ theme }) => theme.container.containerMaxWidth.maxWidth};
@@ -15,11 +16,12 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.colors.lightColor};
 `;
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.div<IContentContainer>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.7rem;
+  align-items: ${({ alignItems }) => alignItems || 'stretch'};
 
   @media (min-width: 767px) {
     gap: 1rem;
