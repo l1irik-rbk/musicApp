@@ -38,6 +38,12 @@ export const Button = styled.button`
   border: 1px solid hsl(200deg 15% 8%);
   padding: 5px;
   margin-bottom: 10px;
+  transition: all 0.5s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.hoverCardColor};
+    border-color: ${({ theme }) => theme.colors.hoverCardColor};
+  }
 
   &:disabled {
     cursor: not-allowed;
@@ -82,7 +88,10 @@ export const PageItems = styled.ul<IPageItems>`
 export const PageItem = styled.li`
   font-size: 20px;
   margin-bottom: 5px;
-  transition: all 0.5s;
+
+  & a {
+    transition: all 0.5s;
+  }
 
   &:first-child a:hover {
     color: ${({ theme }) => theme.colors.hoverCardColor};
