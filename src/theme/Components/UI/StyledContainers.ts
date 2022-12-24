@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IContentContainer } from '../Types';
+import { IContentContainer } from '../../Types';
 
 export const Main = styled.main`
   max-width: ${({ theme }) => theme.container.containerMaxWidth.maxWidth};

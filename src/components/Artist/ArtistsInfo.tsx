@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IArtist } from '../../helpers/constantsTypes';
 
-import * as A from '../../theme/UI/StyledMain';
+import * as A from '../../theme/Components/UI/StyledMain';
 
 const ArtistsInfo = ({ artist }: { artist: IArtist | null }): JSX.Element => {
   return (

@@ -18,7 +18,7 @@ import {
 import Spinner from '../components/UI/Spinner';
 import Error from '../components/UI/Error';
 
-import * as A from '../theme/UI/StyledMain';
+import * as A from '../theme/Components/UI/StyledMain';
 
 const Artist = (): JSX.Element => {
   const [disabledBtn, setDisabledBtn] = useState(false);

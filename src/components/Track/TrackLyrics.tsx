@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAppSelector } from '../../Redux/hooks';
 
-import * as S from '../../theme/Components/StyledTrackLyrics';
+import * as S from '../../theme/Components/Track/StyledTrackLyrics';
 
 const TrackLyrics = () => {
   const { currentTrackLyrics } = useAppSelector((state) => state.currentTrack);

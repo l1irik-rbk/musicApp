@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { ITrackA } from '../../helpers/constantsTypes';
 import MusicLinks from './MusicLinks';
-import * as A from '../../theme/UI/StyledMain';
+import * as A from '../../theme/Components/UI/StyledMain';
 
 const TracksList = ({ tracks }: { tracks: ITrackA[] | null }): JSX.Element => {
   return (

@@ -13,8 +13,8 @@ import {
 } from '../../Redux/slices/mainPageSlice';
 import { fetchTracksOrArtists } from '../../Redux/thunks/fetchTracksOrArtists';
 
-import * as C from '../../theme/UI/StyledContainers';
-import * as S from '../../theme/Components/StyledSearch';
+import * as C from '../../theme/Components/UI/StyledContainers';
+import * as S from '../../theme/Components/Controls/StyledSearch';
 
 const Search = (): JSX.Element => {
   const dispatch = useAppDispatch();

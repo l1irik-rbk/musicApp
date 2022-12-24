@@ -8,7 +8,7 @@ import { setPageNumber } from '../../Redux/slices/mainPageSlice';
 import { fetchAlbums } from '../../Redux/thunks/fetchAlbums';
 import { fetchTracksOrArtists } from '../../Redux/thunks/fetchTracksOrArtists';
 
-import * as S from '../../theme/Components/StyledPagination';
+import * as S from '../../theme/Components/Controls/StyledPagination';
 
 const Pagination = ({ artistID }: Ipagination): JSX.Element => {
   const location = useLocation();

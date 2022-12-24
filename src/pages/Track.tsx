@@ -11,7 +11,7 @@ import { setLyrics } from '../Redux/slices/trackSlice';
 import { fetchLyrics } from '../Redux/thunks/fetchLyrics';
 import { fetchTrack } from '../Redux/thunks/fetchTrack';
 
-import * as A from '../theme/UI/StyledMain';
+import * as A from '../theme/Components/UI/StyledMain';
 
 const Track = (): JSX.Element => {
   const [disabledBtn, setDisabledBtn] = useState(false);

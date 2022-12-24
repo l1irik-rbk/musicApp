@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchChartArtists } from '../Redux/thunks/fetchChartArtists';
 import { fetchChartTracks } from '../Redux/thunks/fetchChartTracks';
 
-import * as C from '../theme/UI/StyledContainers';
+import * as C from '../theme/Components/UI/StyledContainers';
 
 const Charts = (): JSX.Element => {
   const dispatch = useAppDispatch();
