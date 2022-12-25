@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { IArtistA } from '../../helpers/constantsTypes';
 import * as A from '../../theme/Components/UI/StyledMain';
 
-const ArtistsList = ({ artists }: { artists: IArtistA[] }): JSX.Element => {
+const ArtistsList = React.memo(({ artists }: { artists: IArtistA[] }): JSX.Element => {
   return (
     <>
       {artists.map(({ artist }) => (
@@ -16,6 +16,6 @@ const ArtistsList = ({ artists }: { artists: IArtistA[] }): JSX.Element => {
       ))}
     </>
   );
-};
+});
 
 export default ArtistsList;

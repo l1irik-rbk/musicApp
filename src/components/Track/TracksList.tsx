@@ -5,7 +5,7 @@ import { ITrackA } from '../../helpers/constantsTypes';
 import MusicLinks from './MusicLinks';
 import * as A from '../../theme/Components/UI/StyledMain';
 
-const TracksList = ({ tracks }: { tracks: ITrackA[] | null }): JSX.Element => {
+const TracksList = React.memo(({ tracks }: { tracks: ITrackA[] | null }): JSX.Element => {
   return (
     <>
       {tracks &&
@@ -21,6 +21,6 @@ const TracksList = ({ tracks }: { tracks: ITrackA[] | null }): JSX.Element => {
         ))}
     </>
   );
-};
+});
 
 export default TracksList;

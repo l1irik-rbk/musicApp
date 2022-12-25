@@ -13,7 +13,6 @@ const Albums = (): JSX.Element => {
   const { currentArtistAlbums, currentArtist, statusAlbums, errorAlbums } = useAppSelector(
     (state) => state.currentArtist
   );
-  console.log('currentArtist', currentArtist);
 
   return (
     <>

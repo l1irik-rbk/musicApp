@@ -4,7 +4,8 @@ import { IArtist } from '../../helpers/constantsTypes';
 
 import * as A from '../../theme/Components/UI/StyledMain';
 
-const ArtistsInfo = ({ artist }: { artist: IArtist | null }): JSX.Element => {
+const ArtistsInfo = React.memo(({ artist }: { artist: IArtist | null }): JSX.Element => {
+  console.log(artist);
   return (
     <>
       {artist && (
@@ -37,6 +38,6 @@ const ArtistsInfo = ({ artist }: { artist: IArtist | null }): JSX.Element => {
       )}
     </>
   );
-};
+});
 
 export default ArtistsInfo;

@@ -6,8 +6,8 @@ import MusicLinks from './MusicLinks';
 import { ITrack } from '../../helpers/constantsTypes';
 import * as A from '../../theme/Components/UI/StyledMain';
 
-const TrackInfo = ({ track }: { track: ITrack | null }): JSX.Element => {
-  console.log(track);
+const TrackInfo = React.memo(({ track }: { track: ITrack | null }): JSX.Element => {
+  console.log('track', track);
   return (
     <>
       {track && (
@@ -35,6 +35,6 @@ const TrackInfo = ({ track }: { track: ITrack | null }): JSX.Element => {
       )}
     </>
   );
-};
+});
 
 export default TrackInfo;

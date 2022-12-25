@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 
 import { ENTER_BUTTON } from '../../helpers/constants';
