@@ -80,6 +80,8 @@ export const PageItems = styled.ul<IPageItems>`
   flex-direction: ${({ flexDirection }) => flexDirection || 'column'};
   justify-content: ${({ justifyContent }) => justifyContent || 'flex-end'};
   flex-wrap: wrap;
+  list-style: ${({ listStyle }) => listStyle || 'none'};
+  margin-left: ${({ listStyle }) => (listStyle ? '23px' : '0')};
 
   & li + li {
     margin-left: ${({ flexDirection }) => (flexDirection === 'row' ? '7px' : '0')};

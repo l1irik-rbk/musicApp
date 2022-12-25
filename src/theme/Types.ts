@@ -10,6 +10,7 @@ export interface IPageSubTitle {
 export interface IPageItems {
   flexDirection?: string;
   justifyContent?: string;
+  listStyle?: string;
 }
 
 export interface IContentContainer {
