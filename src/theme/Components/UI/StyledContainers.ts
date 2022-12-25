@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { IContentContainer } from '../../Types';
 
 export const Main = styled.main`

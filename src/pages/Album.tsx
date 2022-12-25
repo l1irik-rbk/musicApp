@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchAlbum } from '../Redux/thunks/fetchAlbum';
 import { fetchAlbumTracks } from '../Redux/thunks/fetchAlbumTracks';
 import { setAlbumTracks, setCurrentAlbum } from '../Redux/slices/albumSlice';
+
 import * as A from '../theme/Components/UI/StyledMain';
 import * as C from '../theme/Components/UI/StyledContainers';
 

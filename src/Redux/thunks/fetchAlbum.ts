@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
+
 import { ERROR_MESSAGE } from '../../helpers/constants';
 import { Status } from '../../helpers/constantsTypes';
 import { getAlbum } from '../../services/getAlbum';

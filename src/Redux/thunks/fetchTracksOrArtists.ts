@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
+
 import { ERROR_MESSAGE, ITEMS_PER_PAGE } from '../../helpers/constants';
 import { IFetchTracksOrArtists, Status } from '../../helpers/constantsTypes';
 import { findTracksOrArtists } from '../../services/findTracksOrArtists';

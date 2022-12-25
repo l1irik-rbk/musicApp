@@ -1,4 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+
 import { albumSlice } from './slices/albumSlice';
 import { currentArtistSlice } from './slices/artistSlice';
 import { chartArtistsSlice } from './slices/chartArtistsSlice';

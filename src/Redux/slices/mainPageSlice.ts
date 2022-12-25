@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { IArtistA, ITrackA, Status } from '../../helpers/constantsTypes';
 import { fetchTracksOrArtists } from '../thunks/fetchTracksOrArtists';
 

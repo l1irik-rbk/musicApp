@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { Status } from '../../helpers/constantsTypes';
 import { fetchChartTracks } from '../thunks/fetchChartTracks';
 

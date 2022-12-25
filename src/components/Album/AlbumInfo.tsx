@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { IAlbum } from '../../helpers/constantsTypes';
+
 import * as A from '../../theme/Components/UI/StyledMain';
 
 const AlbumInfo = React.memo(({ album }: { album: IAlbum | null }): JSX.Element => {
