@@ -79,6 +79,7 @@ export const PageItems = styled.ul<IPageItems>`
   display: flex;
   flex-direction: ${({ flexDirection }) => flexDirection || 'column'};
   justify-content: ${({ justifyContent }) => justifyContent || 'flex-end'};
+  flex-wrap: wrap;
 
   & li + li {
     margin-left: ${({ flexDirection }) => (flexDirection === 'row' ? '7px' : '0')};

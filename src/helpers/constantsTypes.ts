@@ -50,6 +50,7 @@ export interface ITrack {
   track_id: number;
   track_name: string;
   num_favourite: number;
+  track_edit_url: string;
 }
 
 export interface IArtistA {

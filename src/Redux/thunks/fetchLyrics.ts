@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
-import { ERROR_MESSAGE } from '../../helpers/constants';
+import { ERROR_MESSAGE_LYRICS } from '../../helpers/constants';
 import { Status } from '../../helpers/constantsTypes';
 import { getTrackLyrics } from '../../services/getTrackLyrics';
 
@@ -12,7 +12,7 @@ export const fetchLyrics = createAsyncThunk(
       const { data } = response;
       console.log(response);
       if (response.statusText !== Status.OK || data.message.header.status_code !== Status.SUCCESS) {
-        throw new Error(ERROR_MESSAGE);
+        throw new Error(ERROR_MESSAGE_LYRICS);
       }
 
       console.log(data.message.body);

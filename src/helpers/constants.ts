@@ -24,7 +24,11 @@ export const ALL_COUNTRIES = `${BASE_COUNTRIES_URL}/all?fields=name,alpha2Code`;
 
 export const ENTER_BUTTON = 'Enter';
 
-export const ERROR_MESSAGE = 'Oops! Something went wrong!';
+export const ERROR_MESSAGE = 'Oops! Something went wrong! ';
+
+export const MESSAGE_LYRICS = `Probably this track doesn't have lyrics. Try to add it on this `;
+
+export const ERROR_MESSAGE_LYRICS = `${ERROR_MESSAGE} ${MESSAGE_LYRICS}`;
 
 export const MENU_LINKS = [
   { path: Paths.MAIN_PAGE, linkName: '' },

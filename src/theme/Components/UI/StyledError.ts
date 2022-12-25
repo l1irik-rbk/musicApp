@@ -13,3 +13,13 @@ export const StyledError = styled.div`
     font-size: 40px;
   }
 `;
+
+export const ErrorLink = styled.a`
+  border-bottom: 2px solid ${({ theme }) => theme.colors.mainTextColor};
+  transition: all 0.5s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.hoverCardColor};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.hoverCardColor};
+  }
+`;
