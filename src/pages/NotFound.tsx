@@ -1,7 +1,9 @@
 import React from 'react';
 
+import * as A from '../theme/Components/UI/StyledMain';
+
 const NotFound = (): JSX.Element => {
-  return <div>NotFound</div>;
+  return <A.PageTitle>This page was not found! Try again</A.PageTitle>;
 };
 
 export default NotFound;
