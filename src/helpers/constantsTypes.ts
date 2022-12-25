@@ -16,6 +16,12 @@ export enum Paths {
   FAQ = '/FAQ',
 }
 
+export enum ButtonContent {
+  ALBUM = 'Show album tracks',
+  ARTIST = 'Show albums',
+  TRACK = 'Show liriks',
+}
+
 export interface IRoutes {
   path?: string;
   index?: boolean;
