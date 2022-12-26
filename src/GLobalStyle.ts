@@ -14,6 +14,12 @@ body {
   padding: 0;
   color: ${({ theme }) => theme.colors.mainTextColor};
   background-color: ${({ theme }) => theme.colors.mainBgColor};
+
+  & > div { 
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
 }
 
 ul {

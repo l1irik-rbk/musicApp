@@ -41,7 +41,7 @@ const Album = (): JSX.Element => {
   };
 
   return (
-    <div>
+    <>
       {errorAlbumTracks && <Error error={errorAlbumTracks} />}
       {errorCurrentAlbum && <Error error={errorCurrentAlbum} />}
 
@@ -63,7 +63,7 @@ const Album = (): JSX.Element => {
           <Tracks />
         </C.ContentContainer>
       )}
-    </div>
+    </>
   );
 };
 

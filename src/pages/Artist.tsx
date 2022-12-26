@@ -49,7 +49,7 @@ const Artist = (): JSX.Element => {
   };
 
   return (
-    <div>
+    <>
       {errorArtist && <Error error={errorArtist} />}
 
       {statusArtist === Status.PENDING ? (
@@ -65,7 +65,7 @@ const Artist = (): JSX.Element => {
 
       {!!currentArtistAlbums.length && <Pagination artistID={currentArtist?.artist_id} />}
       <Albums />
-    </div>
+    </>
   );
 };
 

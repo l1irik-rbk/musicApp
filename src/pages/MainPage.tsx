@@ -17,8 +17,10 @@ const MainPage = (): JSX.Element => {
 
   return (
     <>
-      <Filters />
-      <Search />
+      <C.ControlsContainer>
+        <Filters />
+        <Search />
+      </C.ControlsContainer>
 
       {(!!artists.length || !!tracks.length) && <Pagination />}
       {status === Status.FULFILLED && (

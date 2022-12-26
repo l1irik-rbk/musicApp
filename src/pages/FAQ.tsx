@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { FAQ_ITEMS, MUSCICMATCH } from '../helpers/constants';
+import { getSpace } from '../utils/getSpace';
+
 import * as S from '../theme/Components/UI/StyledFAQ';
 import * as A from '../theme/Components/UI/StyledMain';
 
@@ -8,24 +11,36 @@ const FAQ = (): JSX.Element => {
     <>
       <A.PageTitle>FAQ</A.PageTitle>
       <A.PageItems listStyle="square">
-        <A.PageItem>You can find a track from the best to the worst in the ranking;</A.PageItem>
-        <A.PageItem>You can find and listen to the track in popular music services;</A.PageItem>
-        <A.PageItem>On the track page you can load the lyrics of the song;</A.PageItem>
-        <A.PageItem>
-          If there is no lyrics for the song, then you can add the lyrics on the{' '}
-          <S.FAQLink href="https://www.musixmatch.com/" target="_blank" rel="noreferrer">
-            musixmatch.com
-          </S.FAQLink>
-          ;
-        </A.PageItem>
+        {FAQ_ITEMS.map((item, index) => {
+          const mark = index === FAQ_ITEMS.length - 1 ? '.' : ';';
 
-        <A.PageItem>You can find an artist from the best to the worst in the ranking;</A.PageItem>
-        <A.PageItem>On the artist page you can load albums;</A.PageItem>
-        <A.PageItem>On the album page you can see all the tracks;</A.PageItem>
+          if (item.includes(MUSCICMATCH)) {
+            const arr = item.split(' ');
 
-        <A.PageItem>
-          You can view the charts by tracks and artists in each country (top 50).
-        </A.PageItem>
+            const indexEl = arr.indexOf(MUSCICMATCH);
+            const firstPart = arr.slice(0, indexEl).join(' ');
+            const secondPart = arr.slice(indexEl + 1, arr.length).join(' ');
+
+            return (
+              <A.PageItem key={index}>
+                {firstPart}
+                {getSpace(firstPart)}
+                <S.FAQLink href="https://www.musixmatch.com/" target="_blank" rel="noreferrer">
+                  {MUSCICMATCH}
+                </S.FAQLink>
+                {getSpace(secondPart)}
+                {secondPart}
+                {mark}
+              </A.PageItem>
+            );
+          }
+          return (
+            <A.PageItem key={index}>
+              {item}
+              {mark}
+            </A.PageItem>
+          );
+        })}
       </A.PageItems>
     </>
   );

@@ -35,23 +35,19 @@ const Pagination = ({ artistID }: Ipagination): JSX.Element => {
   };
 
   return (
-    <div>
-      <S.StyledReactPaginate
-        pageCount={
-          path.includes(Paths.ARTISTS) ? (albumsPageCount as number) : (pageCount as number)
-        }
-        forcePage={
-          path.includes(Paths.ARTISTS) ? (albumsPageNumber as number) : (pageNumber as number)
-        }
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={1}
-        marginPagesDisplayed={1}
-        breakLabel="..."
-        previousLabel="<"
-        nextLabel=">"
-        activeClassName="active"
-      />
-    </div>
+    <S.StyledReactPaginate
+      pageCount={path.includes(Paths.ARTISTS) ? (albumsPageCount as number) : (pageCount as number)}
+      forcePage={
+        path.includes(Paths.ARTISTS) ? (albumsPageNumber as number) : (pageNumber as number)
+      }
+      onPageChange={handlePageClick}
+      pageRangeDisplayed={1}
+      marginPagesDisplayed={1}
+      breakLabel="..."
+      previousLabel="<"
+      nextLabel=">"
+      activeClassName="active"
+    />
   );
 };
 

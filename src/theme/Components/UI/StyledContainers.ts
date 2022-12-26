@@ -39,3 +39,7 @@ export const MusicLinksContainer = styled.div`
     margin-left: 10px;
   }
 `;
+
+export const LyricsContainer = styled.div``;
+
+export const ControlsContainer = styled.div``;

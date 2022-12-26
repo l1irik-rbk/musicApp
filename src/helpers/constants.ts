@@ -30,6 +30,12 @@ export const MESSAGE_LYRICS = `Probably this track doesn't have lyrics. Try to a
 
 export const ERROR_MESSAGE_LYRICS = `${ERROR_MESSAGE} ${MESSAGE_LYRICS}`;
 
+export const MUSCICMATCH = 'musixmatch.com';
+
+export const ITEMS_PER_PAGE = 20;
+
+export const MAX_PAGE_COUNT = 100;
+
 export const MENU_LINKS = [
   { path: Paths.MAIN_PAGE, linkName: '' },
   { path: Paths.CHARTS, linkName: 'Charts' },
@@ -45,10 +51,6 @@ export const ROUTES: IRoutes[] = [
   { path: 'FAQ', element: FAQ },
   { path: '*', element: NotFound },
 ];
-
-export const ITEMS_PER_PAGE = 20;
-
-export const MAX_PAGE_COUNT = 100;
 
 export const MUSIC_LINKS = [
   {
@@ -69,4 +71,15 @@ export const MUSIC_LINKS = [
     rel: 'noreferrer',
     content: SiApplemusic,
   },
+];
+
+export const FAQ_ITEMS = [
+  'You can find a track from the best to the worst in the ranking',
+  'You can find and listen to the track in popular music services',
+  'On the track page you can load the lyrics of the song',
+  `If there is no lyrics for the song, then you can add the lyrics on the ${MUSCICMATCH}`,
+  'You can find an artist from the best to the worst in the ranking',
+  'On the artist page you can load albums',
+  'On the album page you can see all the tracks',
+  'You can view the charts by tracks and artists in each country (top 50)',
 ];
