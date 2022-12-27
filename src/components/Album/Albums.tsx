@@ -13,7 +13,7 @@ const Albums = (): JSX.Element => {
   const { currentArtistAlbums, currentArtist, statusAlbums, errorAlbums } = useAppSelector(
     (state) => state.currentArtist
   );
-  console.log('currentArtistAlbums', currentArtistAlbums);
+
   return (
     <>
       {!!currentArtistAlbums?.length && statusAlbums === Status.FULFILLED && (

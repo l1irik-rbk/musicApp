@@ -8,7 +8,6 @@ import { ITrack } from '../../helpers/types';
 import * as A from '../../theme/Components/UI/StyledMain';
 
 const TrackInfo = React.memo(({ track }: { track: ITrack | null }): JSX.Element => {
-  console.log('track', track);
   return (
     <>
       {track && (

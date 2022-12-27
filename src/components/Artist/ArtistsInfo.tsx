@@ -20,9 +20,6 @@ const ArtistsInfo = React.memo(({ artist }: { artist: IArtist | null }): JSX.Ele
 
   const aliases = artist?.artist_alias_list.length ? artist?.artist_alias_list : '';
 
-  console.log(artistCountry, country);
-
-  console.log(artist);
   return (
     <>
       {artist && (

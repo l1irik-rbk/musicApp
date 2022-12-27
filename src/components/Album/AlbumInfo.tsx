@@ -8,7 +8,7 @@ import * as A from '../../theme/Components/UI/StyledMain';
 
 const AlbumInfo = React.memo(({ album }: { album: IAlbum | null }): JSX.Element => {
   const releaseDate = updateDateFormat(album?.album_release_date);
-  console.log('album', album);
+
   return (
     <>
       {album && (

@@ -23,7 +23,6 @@ const Track = (): JSX.Element => {
 
   const showLiriks = () => {
     setDisabledBtn(!disabledBtn);
-    console.log('trackID', trackID);
     dispatch(fetchLyrics(Number(trackID)));
   };
 

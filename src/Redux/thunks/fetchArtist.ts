@@ -16,7 +16,6 @@ export const fetchArtist = createAsyncThunk(
         throw new Error(ERROR_MESSAGE);
       }
 
-      console.log(data.message.body.artist);
       return data.message.body.artist;
     } catch (error) {
       return rejectWithValue((error as AxiosError).message);

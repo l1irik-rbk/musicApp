@@ -19,7 +19,7 @@ export const fetchAlbums = createAsyncThunk(
       const {
         currentArtist: { albumsPageCount, totalAlbums },
       } = getState() as { currentArtist: ICurrentArtist };
-      console.log('pageNumber', pageNumber);
+
       const response = await axios.get(getArtistAlbums(artistID, pageNumber));
       const { data } = response;
 
@@ -37,7 +37,6 @@ export const fetchAlbums = createAsyncThunk(
         dispatch(setAlbumsPageCount(pageCount));
       }
 
-      console.log(data.message.body.album_list);
       return data.message.body.album_list;
     } catch (error) {
       return rejectWithValue((error as AxiosError).message);

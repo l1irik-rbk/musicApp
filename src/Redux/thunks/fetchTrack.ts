@@ -16,7 +16,6 @@ export const fetchTrack = createAsyncThunk(
         throw new Error(ERROR_MESSAGE);
       }
 
-      console.log(data.message.body.track);
       return data.message.body.track;
     } catch (error) {
       return rejectWithValue((error as AxiosError).message);

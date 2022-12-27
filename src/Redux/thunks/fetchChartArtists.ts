@@ -16,8 +16,6 @@ export const fetchChartArtists = createAsyncThunk(
         throw new Error(ERROR_MESSAGE);
       }
 
-      console.log(data.message.body.artist_list);
-
       return data.message.body.artist_list;
     } catch (error) {
       return rejectWithValue((error as AxiosError).message);

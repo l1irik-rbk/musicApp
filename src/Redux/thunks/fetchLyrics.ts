@@ -11,12 +11,11 @@ export const fetchLyrics = createAsyncThunk(
     try {
       const response = await axios.get(getTrackLyrics(trackID));
       const { data } = response;
-      console.log(response);
+
       if (response.statusText !== Status.OK || data.message.header.status_code !== Status.SUCCESS) {
         throw new Error(ERROR_MESSAGE_LYRICS);
       }
 
-      console.log(data.message.body);
       return data.message.body.lyrics;
     } catch (error) {
       return rejectWithValue((error as AxiosError).message);

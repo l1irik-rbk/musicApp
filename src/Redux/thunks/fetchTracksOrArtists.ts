@@ -36,8 +36,6 @@ export const fetchTracksOrArtists = createAsyncThunk(
         dispatch(setPageCount(pageCount));
       }
 
-      console.log(data.message.body.track_list);
-      console.log(data.message.body.artist_list);
       return data.message.body;
     } catch (error) {
       return rejectWithValue((error as AxiosError).message);

@@ -7,7 +7,7 @@ import * as C from '../../theme/Components/UI/StyledContainers';
 
 const TrackLyrics = () => {
   const { currentTrackLyrics } = useAppSelector((state) => state.currentTrack);
-  console.log('currentTrackLyrics', currentTrackLyrics);
+
   return (
     <C.LyricsContainer>
       {currentTrackLyrics?.lyrics_body.split('\n').map((string, index) => (
