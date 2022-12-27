@@ -1,3 +1,7 @@
+// A - reusable styled component (A.PageTitle and etc.)
+// C - container styled component (C.ContentContainer and etc.)
+// S - unique styled component (S.Menu and etc.)
+
 export const BaseTheme: IBaseTheme = {
   colors: {
     lightColor: 'hsl(0,0%,100%)',
