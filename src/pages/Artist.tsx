@@ -6,7 +6,7 @@ import ArtistsInfo from '../components/Artist/ArtistsInfo';
 import { fetchAlbums } from '../Redux/thunks/fetchAlbums';
 import Albums from '../components/Album/Albums';
 import { fetchArtist } from '../Redux/thunks/fetchArtist';
-import { ButtonContent, Status } from '../helpers/constantsTypes';
+import { ButtonContent, Status } from '../helpers/types';
 import Pagination from '../components/Controls/Pagination';
 import {
   setAlbumsPageCount,

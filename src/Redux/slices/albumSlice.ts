@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IAlbum, ITrackA, Status } from '../../helpers/constantsTypes';
+import { IAlbum, ITrackA, Status } from '../../helpers/types';
 import { fetchAlbum } from '../thunks/fetchAlbum';
 import { fetchAlbumTracks } from '../thunks/fetchAlbumTracks';
 

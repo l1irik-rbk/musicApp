@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
 import { ERROR_MESSAGE, ITEMS_PER_PAGE } from '../../helpers/constants';
-import { IFetchAlbums, Status } from '../../helpers/constantsTypes';
+import { IFetchAlbums, Status } from '../../helpers/types';
 import { getArtistAlbums } from '../../services/getArtistAlbums';
 import { setTotalPageCount } from '../../utils/setTotalPageCount';
 import {

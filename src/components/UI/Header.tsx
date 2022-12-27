@@ -3,7 +3,7 @@ import React from 'react';
 import { IoMusicalNotes } from 'react-icons/io5';
 
 import { MENU_LINKS } from '../../helpers/constants';
-import { Paths } from '../../helpers/constantsTypes';
+import { Paths } from '../../helpers/types';
 
 import * as C from '../../theme/Components/UI/StyledContainers';
 import * as S from '../../theme/Components/UI/StyledHeader';

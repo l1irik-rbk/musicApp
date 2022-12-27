@@ -6,7 +6,7 @@ import Charts from '../pages/Charts';
 import FAQ from '../pages/FAQ';
 import MainPage from '../pages/MainPage';
 import NotFound from '../pages/NotFound';
-import { IRoutes, Paths } from './constantsTypes';
+import { IRoutes, Paths } from './types';
 import Artist from '../pages/Artist';
 import Album from '../pages/Album';
 

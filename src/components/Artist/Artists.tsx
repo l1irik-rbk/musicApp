@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Paths } from '../../helpers/constantsTypes';
+import { Paths } from '../../helpers/types';
 import { useAppSelector } from '../../Redux/hooks';
 import ArtistsList from './ArtistsList';
 

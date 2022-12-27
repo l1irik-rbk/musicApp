@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { IArtistA } from '../../helpers/constantsTypes';
+import { IArtistA } from '../../helpers/types';
 
 import * as A from '../../theme/Components/UI/StyledMain';
 

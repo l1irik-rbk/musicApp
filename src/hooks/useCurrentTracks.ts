@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { ITrackA, Paths } from '../helpers/constantsTypes';
+import { ITrackA, Paths } from '../helpers/types';
 import { useAppSelector } from '../Redux/hooks';
 
 export const useCurrentTracks = (locationPath: string) => {

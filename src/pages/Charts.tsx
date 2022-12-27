@@ -5,7 +5,7 @@ import Error from '../components/UI/Error';
 import Filters from '../components/Controls/Filters';
 import Spinner from '../components/UI/Spinner';
 import Tracks from '../components/Track/Tracks';
-import { IOptions, Status } from '../helpers/constantsTypes';
+import { IOptions, Status } from '../helpers/types';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchChartArtists } from '../Redux/thunks/fetchChartArtists';
 import { fetchChartTracks } from '../Redux/thunks/fetchChartTracks';

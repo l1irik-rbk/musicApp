@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Ipagination, Paths } from '../../helpers/constantsTypes';
+import { Ipagination, Paths } from '../../helpers/types';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 import { setAlbumsPageNumber } from '../../Redux/slices/artistSlice';
 import { setPageNumber } from '../../Redux/slices/mainPageSlice';

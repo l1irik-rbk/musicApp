@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Status } from '../helpers/constantsTypes';
+import { Status } from '../helpers/types';
 import { useAppSelector } from '../Redux/hooks';
 import Filters from '../components/Controls/Filters';
 import Artists from '../components/Artist/Artists';

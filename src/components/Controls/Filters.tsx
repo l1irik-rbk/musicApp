@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Select, { SingleValue } from 'react-select';
 
-import { IOptions, Paths } from '../../helpers/constantsTypes';
+import { IOptions, Paths } from '../../helpers/types';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 import {
   raitingOptions,

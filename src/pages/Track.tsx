@@ -5,7 +5,7 @@ import Error from '../components/UI/Error';
 import Spinner from '../components/UI/Spinner';
 import TrackInfo from '../components/Track/TrackInfo';
 import TrackLyrics from '../components/Track/TrackLyrics';
-import { ButtonContent, Status } from '../helpers/constantsTypes';
+import { ButtonContent, Status } from '../helpers/types';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { setLyrics } from '../Redux/slices/trackSlice';
 import { fetchLyrics } from '../Redux/thunks/fetchLyrics';

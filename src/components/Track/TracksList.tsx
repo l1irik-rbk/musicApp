@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { ITrackA } from '../../helpers/constantsTypes';
+import { ITrackA } from '../../helpers/types';
 import MusicLinks from './MusicLinks';
 
 import * as A from '../../theme/Components/UI/StyledMain';

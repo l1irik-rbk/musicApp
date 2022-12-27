@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { IAlbum } from '../../helpers/constantsTypes';
+import { IAlbum } from '../../helpers/types';
 import { updateDateFormat } from '../../utils/updateDateFormat';
 
 import * as A from '../../theme/Components/UI/StyledMain';
@@ -26,10 +26,10 @@ const AlbumInfo = React.memo(({ album }: { album: IAlbum | null }): JSX.Element 
 
           {!!album.primary_genres.music_genre_list.length && (
             <>
-              <A.PageSubTitle textAlign={'start'} fontWeight={'700'}>
+              <A.PageSubTitle textAlign="start" fontWeight="700">
                 Genres:
               </A.PageSubTitle>
-              <A.PageItems flexDirection={'row'} justifyContent={'flex-start'}>
+              <A.PageItems flexDirection="row" justifyContent="flex-start">
                 {album.primary_genres.music_genre_list.map((genre, index) => (
                   <A.PageItem key={genre.music_genre.music_genre_name}>
                     {genre.music_genre.music_genre_name}

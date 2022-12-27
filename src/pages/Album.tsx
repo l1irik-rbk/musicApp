@@ -5,7 +5,7 @@ import AlbumInfo from '../components/Album/AlbumInfo';
 import Error from '../components/UI/Error';
 import Spinner from '../components/UI/Spinner';
 import Tracks from '../components/Track/Tracks';
-import { ButtonContent, Status } from '../helpers/constantsTypes';
+import { ButtonContent, Status } from '../helpers/types';
 import { useAppDispatch, useAppSelector } from '../Redux/hooks';
 import { fetchAlbum } from '../Redux/thunks/fetchAlbum';
 import { fetchAlbumTracks } from '../Redux/thunks/fetchAlbumTracks';

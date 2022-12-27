@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IArtist } from '../../helpers/constantsTypes';
+import { IArtist } from '../../helpers/types';
 import { updateDateFormat } from '../../utils/updateDateFormat';
 import { useAppSelector } from '../../Redux/hooks';
 import { NO_DATE } from '../../helpers/constants';
@@ -41,10 +41,10 @@ const ArtistsInfo = React.memo(({ artist }: { artist: IArtist | null }): JSX.Ele
           </A.PageItems>
           {aliases && (
             <>
-              <A.PageSubTitle textAlign={'start'} fontWeight={'700'}>
+              <A.PageSubTitle textAlign="start" fontWeight="700">
                 Aliases:
               </A.PageSubTitle>
-              <A.PageItems flexDirection={'row'} justifyContent={'flex-start'}>
+              <A.PageItems flexDirection="row" justifyContent="flex-start">
                 {artist.artist_alias_list.map(({ artist_alias }, index) => (
                   <A.PageItem key={artist_alias}>
                     {artist_alias}
