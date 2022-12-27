@@ -20,6 +20,7 @@ export const Container = styled.div`
 export const ContentContainer = styled.div<IContentContainer>`
   display: flex;
   flex-wrap: wrap;
+  flex-wrap: ${({ flexWrap }) => flexWrap || 'wrap'};
   justify-content: center;
   gap: 0.7rem;
   gap: ${({ gap }) => gap || '0.7rem'};

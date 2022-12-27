@@ -48,7 +48,7 @@ const Search = (): JSX.Element => {
   };
 
   return (
-    <C.ContentContainer alignItems="center" gap="0" marginB="20px">
+    <C.ContentContainer alignItems="center" flexWrap="nowrap" gap="0" marginB="20px">
       <S.Input value={searchValue} onChange={handleSearch} onKeyDown={onKeyPressed} />
       <S.SearchButton onClick={findValue}>
         <IoSearchOutline />

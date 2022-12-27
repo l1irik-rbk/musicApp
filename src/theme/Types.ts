@@ -17,4 +17,5 @@ export interface IContentContainer {
   alignItems?: string;
   marginB?: string;
   gap?: string;
+  flexWrap?: string;
 }
