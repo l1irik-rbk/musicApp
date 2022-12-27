@@ -34,7 +34,7 @@ const Artist = (): JSX.Element => {
   } = useAppSelector((state) => state.currentArtist);
 
   useEffect(() => {
-    dispatch(setCurrentArtistAlbums([]));
+    if (currentArtistAlbums) dispatch(setCurrentArtistAlbums(null));
     dispatch(setCurrentArtist(null));
     dispatch(setAlbumsPageNumber(0));
     dispatch(setTotalAlbums(null));
@@ -63,7 +63,7 @@ const Artist = (): JSX.Element => {
         </>
       )}
 
-      {!!currentArtistAlbums.length && <Pagination artistID={currentArtist?.artist_id} />}
+      {!!currentArtistAlbums?.length && <Pagination artistID={currentArtist?.artist_id} />}
       <Albums />
     </>
   );

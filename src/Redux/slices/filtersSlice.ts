@@ -27,13 +27,13 @@ export const raitingOptions: IOptions[] = [
 ];
 
 export const defaultOptions = {
-  searchOption: searchOptions[0],
+  searchOption: searchOptions[1],
   raitingOption: raitingOptions[0],
   countriesOption: { value: 'RU', label: 'Russian Federation' },
 };
 
 const initialState: IFilters = {
-  searchValue: 'rap god',
+  searchValue: 'eminem',
   searchOption: defaultOptions.searchOption,
   raitingOption: defaultOptions.raitingOption,
   countriesOption: defaultOptions.countriesOption,

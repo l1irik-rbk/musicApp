@@ -114,3 +114,11 @@ export const PageItem = styled.li`
     margin-bottom: 10px;
   }
 `;
+
+export const DimItem = styled.span`
+  font-weight: 300;
+
+  &:hover {
+    color: inherit;
+  }
+`;

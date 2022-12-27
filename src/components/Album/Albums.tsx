@@ -13,10 +13,10 @@ const Albums = (): JSX.Element => {
   const { currentArtistAlbums, currentArtist, statusAlbums, errorAlbums } = useAppSelector(
     (state) => state.currentArtist
   );
-
+  console.log('currentArtistAlbums', currentArtistAlbums);
   return (
     <>
-      {!!currentArtistAlbums.length && statusAlbums === Status.FULFILLED && (
+      {!!currentArtistAlbums?.length && statusAlbums === Status.FULFILLED && (
         <>
           <A.PageTitle>{currentArtist!.artist_name} albums</A.PageTitle>
           <C.ContentContainer>
@@ -27,6 +27,12 @@ const Albums = (): JSX.Element => {
             ))}
           </C.ContentContainer>
         </>
+      )}
+
+      {currentArtistAlbums && !currentArtistAlbums?.length && statusAlbums === Status.FULFILLED && (
+        <C.ContentContainer>
+          <A.PageSubTitle>No albums for this artist!</A.PageSubTitle>
+        </C.ContentContainer>
       )}
 
       {statusAlbums === Status.PENDING && <Spinner />}

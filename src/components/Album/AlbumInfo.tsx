@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { IAlbum } from '../../helpers/constantsTypes';
+import { updateDateFormat } from '../../utils/updateDateFormat';
 
 import * as A from '../../theme/Components/UI/StyledMain';
 
 const AlbumInfo = React.memo(({ album }: { album: IAlbum | null }): JSX.Element => {
+  const releaseDate = updateDateFormat(album?.album_release_date);
   console.log('album', album);
   return (
     <>
@@ -18,7 +20,7 @@ const AlbumInfo = React.memo(({ album }: { album: IAlbum | null }): JSX.Element 
               </Link>
             </A.PageItem>
             <A.PageItem>
-              <span>Release date:</span> {album.album_release_date}
+              <span>Release date:</span> {releaseDate}
             </A.PageItem>
           </A.PageItems>
 

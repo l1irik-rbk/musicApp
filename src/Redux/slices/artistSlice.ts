@@ -5,7 +5,7 @@ import { fetchAlbums } from '../thunks/fetchAlbums';
 import { fetchArtist } from '../thunks/fetchArtist';
 
 export interface ICurrentArtist {
-  currentArtistAlbums: ICurrentArtistAlbums[];
+  currentArtistAlbums: ICurrentArtistAlbums[] | null;
   currentArtist: IArtist | null;
   totalAlbums: null | number;
   albumsPageCount: null | number;
@@ -17,7 +17,7 @@ export interface ICurrentArtist {
 }
 
 const initialState: ICurrentArtist = {
-  currentArtistAlbums: [],
+  currentArtistAlbums: null,
   currentArtist: null,
   totalAlbums: null,
   albumsPageCount: null,
@@ -41,7 +41,7 @@ export const currentArtistSlice = createSlice({
     setAlbumsPageNumber: (state, action: PayloadAction<number | null>) => {
       state.albumsPageNumber = action.payload;
     },
-    setCurrentArtistAlbums: (state, action: PayloadAction<ICurrentArtistAlbums[]>) => {
+    setCurrentArtistAlbums: (state, action: PayloadAction<ICurrentArtistAlbums[] | null>) => {
       state.currentArtistAlbums = action.payload;
     },
     setCurrentArtist: (state, action: PayloadAction<null>) => {

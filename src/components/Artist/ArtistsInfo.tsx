@@ -1,10 +1,27 @@
 import React from 'react';
 
 import { IArtist } from '../../helpers/constantsTypes';
+import { updateDateFormat } from '../../utils/updateDateFormat';
+import { useAppSelector } from '../../Redux/hooks';
+import { NO_DATE } from '../../helpers/constants';
 
 import * as A from '../../theme/Components/UI/StyledMain';
 
 const ArtistsInfo = React.memo(({ artist }: { artist: IArtist | null }): JSX.Element => {
+  const { countriesOptions } = useAppSelector((state) => state.filters.countries);
+
+  const beginDate = updateDateFormat(artist?.begin_date);
+  const endDate = updateDateFormat(artist?.end_date);
+
+  const country = artist?.artist_country;
+  const artistCountry = countriesOptions.filter(
+    (countryOpt) => countryOpt.value.toLowerCase() === country?.toLowerCase()
+  )[0];
+
+  const aliases = artist?.artist_alias_list.length ? artist?.artist_alias_list : '';
+
+  console.log(artistCountry, country);
+
   console.log(artist);
   return (
     <>
@@ -12,14 +29,17 @@ const ArtistsInfo = React.memo(({ artist }: { artist: IArtist | null }): JSX.Ele
         <>
           <A.PageTitle>{artist.artist_name}</A.PageTitle>
           <A.PageSubTitle>
-            {artist.begin_date} - {artist.end_date}
+            {beginDate !== NO_DATE ? beginDate : ''} {endDate !== NO_DATE ? `- ${endDate}` : ''}
           </A.PageSubTitle>
+
           <A.PageItems>
-            <A.PageItem>
-              <span>Country:</span> {artist.artist_country}
-            </A.PageItem>
+            {country && (
+              <A.PageItem>
+                <span>Country:</span> {artistCountry ? artistCountry.label : country}
+              </A.PageItem>
+            )}
           </A.PageItems>
-          {artist.artist_alias_list && (
+          {aliases && (
             <>
               <A.PageSubTitle textAlign={'start'} fontWeight={'700'}>
                 Aliases:

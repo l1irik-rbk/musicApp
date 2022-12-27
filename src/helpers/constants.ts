@@ -32,6 +32,8 @@ export const ERROR_MESSAGE_LYRICS = `${ERROR_MESSAGE} ${MESSAGE_LYRICS}`;
 
 export const MUSCICMATCH = 'musixmatch.com';
 
+export const NO_DATE = '00-00-0000';
+
 export const ITEMS_PER_PAGE = 20;
 
 export const MAX_PAGE_COUNT = 100;
