@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IArtist, ICurrentArtistAlbums, Status } from 'helpers/types';
-import { fetchAlbums } from '../thunks/fetchAlbums';
-import { fetchArtist } from '../thunks/fetchArtist';
+import { fetchAlbums } from 'Redux/thunks/fetchAlbums';
+import { fetchArtist } from 'Redux/thunks/fetchArtist';
 
 export interface ICurrentArtist {
   currentArtistAlbums: ICurrentArtistAlbums[] | null;

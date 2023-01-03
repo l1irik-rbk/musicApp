@@ -3,8 +3,8 @@ import React from 'react';
 import { Status } from 'helpers/types';
 import { useAppSelector } from 'Redux/hooks';
 import AlbumInfo from './AlbumInfo';
-import Error from '../UI/Error';
-import Spinner from '../UI/Spinner';
+import Error from 'components/UI/Error';
+import Spinner from 'components/UI/Spinner';
 
 import * as C from 'theme/Components/UI/StyledContainers';
 import * as A from 'theme/Components/UI/StyledMain';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ICardTitle, IPageSubTitle, IPageItems } from '../../Types';
+import { ICardTitle, IPageSubTitle, IPageItems } from 'theme/Types';
 
 export const Card = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.darkBgColor};

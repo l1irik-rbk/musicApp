@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IAlbum, ITrackA, Status } from 'helpers/types';
-import { fetchAlbum } from '../thunks/fetchAlbum';
-import { fetchAlbumTracks } from '../thunks/fetchAlbumTracks';
+import { fetchAlbumTracks } from 'Redux/thunks/fetchAlbumTracks';
+import { fetchAlbum } from 'Redux/thunks/fetchAlbum';
 
 export interface IAlbumTracks {
   albumTracks: ITrackA[];

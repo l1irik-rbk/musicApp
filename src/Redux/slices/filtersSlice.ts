@@ -2,7 +2,7 @@ import { SingleValue } from 'react-select';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IOptions, Status } from 'helpers/types';
-import { fetchCountries } from '../thunks/fetchCountries';
+import { fetchCountries } from 'Redux/thunks/fetchCountries';
 
 interface IFilters {
   searchValue: string;

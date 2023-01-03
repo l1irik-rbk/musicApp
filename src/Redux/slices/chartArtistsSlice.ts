@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Status } from 'helpers/types';
-import { fetchChartArtists } from '../thunks/fetchChartArtists';
+import { fetchChartArtists } from 'Redux/thunks/fetchChartArtists';
 
 interface IChartArtists {
   chartArtists: [];

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as S from '../../theme/Components/UI/StyledSpinner';
+import * as S from 'theme/Components/UI/StyledSpinner';
 
 const Spinner = (): JSX.Element => {
   return (

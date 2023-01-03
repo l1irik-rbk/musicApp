@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { ICurrentTrackLyricks, ITrack, Status } from 'helpers/types';
-import { fetchLyrics } from '../thunks/fetchLyrics';
-import { fetchTrack } from '../thunks/fetchTrack';
+import { fetchLyrics } from 'Redux/thunks/fetchLyrics';
+import { fetchTrack } from 'Redux/thunks/fetchTrack';
 
 interface ICurrentTrack {
   currentTrackLyrics: ICurrentTrackLyricks | null;
