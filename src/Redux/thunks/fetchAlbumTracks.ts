@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import { ERROR_MESSAGE } from '../../helpers/constants';
-import { Status } from '../../helpers/types';
-import { getAlbumTracks } from '../../services/getAlbumTracks';
+import { ERROR_MESSAGE } from 'helpers/constants';
+import { Status } from 'helpers/types';
+import { getAlbumTracks } from 'services/getAlbumTracks';
 
 export const fetchAlbumTracks = createAsyncThunk(
   'album/fetchAlbumTracks',

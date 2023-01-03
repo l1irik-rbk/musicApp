@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IArtistA, ITrackA, Status } from '../../helpers/types';
+import { IArtistA, ITrackA, Status } from 'helpers/types';
 import { fetchTracksOrArtists } from '../thunks/fetchTracksOrArtists';
 
 export interface IMainPage {

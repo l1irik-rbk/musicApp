@@ -1,14 +1,14 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Ipagination, Paths } from '../../helpers/types';
-import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
-import { setAlbumsPageNumber } from '../../Redux/slices/artistSlice';
-import { setPageNumber } from '../../Redux/slices/mainPageSlice';
-import { fetchAlbums } from '../../Redux/thunks/fetchAlbums';
-import { fetchTracksOrArtists } from '../../Redux/thunks/fetchTracksOrArtists';
+import { Ipagination, Paths } from 'helpers/types';
+import { useAppDispatch, useAppSelector } from 'Redux/hooks';
+import { setAlbumsPageNumber } from 'Redux/slices/artistSlice';
+import { setPageNumber } from 'Redux/slices/mainPageSlice';
+import { fetchAlbums } from 'Redux/thunks/fetchAlbums';
+import { fetchTracksOrArtists } from 'Redux/thunks/fetchTracksOrArtists';
 
-import * as S from '../../theme/Components/Controls/StyledPagination';
+import * as S from 'theme/Components/Controls/StyledPagination';
 
 const Pagination = ({ artistID }: Ipagination): JSX.Element => {
   const location = useLocation();

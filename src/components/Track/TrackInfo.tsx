@@ -3,9 +3,9 @@ import { IoHeartOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 import MusicLinks from './MusicLinks';
-import { ITrack } from '../../helpers/types';
+import { ITrack } from 'helpers/types';
 
-import * as A from '../../theme/Components/UI/StyledMain';
+import * as A from 'theme/Components/UI/StyledMain';
 
 const TrackInfo = React.memo(({ track }: { track: ITrack | null }): JSX.Element => {
   return (

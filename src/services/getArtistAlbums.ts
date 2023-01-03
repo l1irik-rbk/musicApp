@@ -1,4 +1,4 @@
-import { API_KEY, ITEMS_PER_PAGE, URL } from '../helpers/constants';
+import { API_KEY, ITEMS_PER_PAGE, URL } from 'helpers/constants';
 
 export const getArtistAlbums = (
   artistID: number | string | null | undefined,

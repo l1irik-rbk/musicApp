@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import { ERROR_MESSAGE_LYRICS } from '../../helpers/constants';
-import { Status } from '../../helpers/types';
-import { getTrackLyrics } from '../../services/getTrackLyrics';
+import { ERROR_MESSAGE_LYRICS } from 'helpers/constants';
+import { Status } from 'helpers/types';
+import { getTrackLyrics } from 'services/getTrackLyrics';
 
 export const fetchLyrics = createAsyncThunk(
   'tracks/fetchLyrics',

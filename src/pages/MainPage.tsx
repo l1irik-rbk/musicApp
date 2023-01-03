@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { Status } from '../helpers/types';
-import { useAppSelector } from '../Redux/hooks';
-import Filters from '../components/Controls/Filters';
-import Artists from '../components/Artist/Artists';
-import Pagination from '../components/Controls/Pagination';
-import Search from '../components/Controls/Search';
-import Tracks from '../components/Track/Tracks';
-import Spinner from '../components/UI/Spinner';
-import Error from '../components/UI/Error';
+import { Status } from 'helpers/types';
+import { useAppSelector } from 'Redux/hooks';
+import Filters from 'components/Controls/Filters';
+import Artists from 'components/Artist/Artists';
+import Pagination from 'components/Controls/Pagination';
+import Search from 'components/Controls/Search';
+import Tracks from 'components/Track/Tracks';
+import Spinner from 'components/UI/Spinner';
+import Error from 'components/UI/Error';
 
-import * as C from '../theme/Components/UI/StyledContainers';
+import * as C from 'theme/Components/UI/StyledContainers';
 
 const MainPage = (): JSX.Element => {
   const { status, error, artists, tracks } = useAppSelector((state) => state.mainPage);

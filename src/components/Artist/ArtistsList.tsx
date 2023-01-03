@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { IArtistA } from '../../helpers/types';
+import { IArtistA } from 'helpers/types';
 
-import * as A from '../../theme/Components/UI/StyledMain';
+import * as A from 'theme/Components/UI/StyledMain';
 
 const ArtistsList = React.memo(({ artists }: { artists: IArtistA[] }): JSX.Element => {
   return (

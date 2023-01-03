@@ -1,6 +1,6 @@
 import { StylesConfig } from 'react-select';
 
-import { IOptions } from '../../../helpers/types';
+import { IOptions } from 'helpers/types';
 
 type IsMulti = false;
 

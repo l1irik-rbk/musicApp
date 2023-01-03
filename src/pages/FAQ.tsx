@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { FAQ_ITEMS, MUSCICMATCH } from '../helpers/constants';
-import { getSpace } from '../utils/getSpace';
+import { FAQ_ITEMS, MUSCICMATCH } from 'helpers/constants';
+import { getSpace } from 'utils/getSpace';
 
-import * as S from '../theme/Components/UI/StyledFAQ';
-import * as A from '../theme/Components/UI/StyledMain';
+import * as S from 'theme/Components/UI/StyledFAQ';
+import * as A from 'theme/Components/UI/StyledMain';
 
 const FAQ = (): JSX.Element => {
   return (

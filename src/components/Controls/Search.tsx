@@ -1,20 +1,20 @@
 import React from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 
-import { ENTER_BUTTON } from '../../helpers/constants';
-import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
-import { setSearchValue } from '../../Redux/slices/filtersSlice';
+import { ENTER_BUTTON } from 'helpers/constants';
+import { useAppDispatch, useAppSelector } from 'Redux/hooks';
+import { setSearchValue } from 'Redux/slices/filtersSlice';
 import {
   setArtists,
   setPageCount,
   setPageNumber,
   setTotalTracksOrArtists,
   setTracks,
-} from '../../Redux/slices/mainPageSlice';
-import { fetchTracksOrArtists } from '../../Redux/thunks/fetchTracksOrArtists';
+} from 'Redux/slices/mainPageSlice';
+import { fetchTracksOrArtists } from 'Redux/thunks/fetchTracksOrArtists';
 
-import * as C from '../../theme/Components/UI/StyledContainers';
-import * as S from '../../theme/Components/Controls/StyledSearch';
+import * as C from 'theme/Components/UI/StyledContainers';
+import * as S from 'theme/Components/Controls/StyledSearch';
 
 const Search = (): JSX.Element => {
   const dispatch = useAppDispatch();

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { IAlbum } from '../../helpers/types';
-import { updateDateFormat } from '../../utils/updateDateFormat';
+import { IAlbum } from 'helpers/types';
+import { updateDateFormat } from 'utils/updateDateFormat';
 
-import * as A from '../../theme/Components/UI/StyledMain';
+import * as A from 'theme/Components/UI/StyledMain';
 
 const AlbumInfo = React.memo(({ album }: { album: IAlbum | null }): JSX.Element => {
   const releaseDate = updateDateFormat(album?.album_release_date);

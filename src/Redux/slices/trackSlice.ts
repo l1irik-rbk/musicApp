@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { ICurrentTrackLyricks, ITrack, Status } from '../../helpers/types';
+import { ICurrentTrackLyricks, ITrack, Status } from 'helpers/types';
 import { fetchLyrics } from '../thunks/fetchLyrics';
 import { fetchTrack } from '../thunks/fetchTrack';
 

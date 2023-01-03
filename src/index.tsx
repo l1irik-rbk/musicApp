@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
-import './index.css';
-import App from './App';
-import { store } from './Redux/store';
-import { GLobalStyle } from './GlobalStyle';
-import { BaseTheme } from './theme/BaseTheme';
+import 'index.css';
+import App from 'App';
+import { store } from 'Redux/store';
+import { GLobalStyle } from 'GlobalStyle';
+import { BaseTheme } from 'theme/BaseTheme';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 

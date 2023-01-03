@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import { ERROR_MESSAGE, ITEMS_PER_PAGE } from '../../helpers/constants';
-import { IFetchTracksOrArtists, Status } from '../../helpers/types';
-import { findTracksOrArtists } from '../../services/findTracksOrArtists';
-import { setTotalPageCount } from '../../utils/setTotalPageCount';
+import { ERROR_MESSAGE, ITEMS_PER_PAGE } from 'helpers/constants';
+import { IFetchTracksOrArtists, Status } from 'helpers/types';
+import { findTracksOrArtists } from 'services/findTracksOrArtists';
+import { setTotalPageCount } from 'utils/setTotalPageCount';
 import { IMainPage, setPageCount, setTotalTracksOrArtists } from '../slices/mainPageSlice';
 
 export const fetchTracksOrArtists = createAsyncThunk(

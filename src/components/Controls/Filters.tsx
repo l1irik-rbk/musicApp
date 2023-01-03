@@ -2,19 +2,19 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Select, { SingleValue } from 'react-select';
 
-import { IOptions, Paths } from '../../helpers/types';
-import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
+import { IOptions, Paths } from 'helpers/types';
+import { useAppDispatch, useAppSelector } from 'Redux/hooks';
 import {
   raitingOptions,
   searchOptions,
   setCountriesOption,
   setRaitingOption,
   setSearchOption,
-} from '../../Redux/slices/filtersSlice';
-import { fetchCountries } from '../../Redux/thunks/fetchCountries';
+} from 'Redux/slices/filtersSlice';
+import { fetchCountries } from 'Redux/thunks/fetchCountries';
 
-import * as S from '../../theme/Components/Controls/StyledFilters';
-import * as C from '../../theme/Components/UI/StyledContainers';
+import * as S from 'theme/Components/Controls/StyledFilters';
+import * as C from 'theme/Components/UI/StyledContainers';
 
 const Filters = (): JSX.Element => {
   const location = useLocation();

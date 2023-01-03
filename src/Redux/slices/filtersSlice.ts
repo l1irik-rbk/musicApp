@@ -1,7 +1,7 @@
 import { SingleValue } from 'react-select';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IOptions, Status } from '../../helpers/types';
+import { IOptions, Status } from 'helpers/types';
 import { fetchCountries } from '../thunks/fetchCountries';
 
 interface IFilters {

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Status } from '../../helpers/types';
+import { Status } from 'helpers/types';
 import { fetchChartTracks } from '../thunks/fetchChartTracks';
 
 interface IChartTracks {

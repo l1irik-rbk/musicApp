@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { IArtist } from '../../helpers/types';
-import { updateDateFormat } from '../../utils/updateDateFormat';
-import { useAppSelector } from '../../Redux/hooks';
-import { NO_DATE } from '../../helpers/constants';
+import { IArtist } from 'helpers/types';
+import { updateDateFormat } from 'utils/updateDateFormat';
+import { useAppSelector } from 'Redux/hooks';
+import { NO_DATE } from 'helpers/constants';
 
-import * as A from '../../theme/Components/UI/StyledMain';
+import * as A from 'theme/Components/UI/StyledMain';
 
 const ArtistsInfo = React.memo(({ artist }: { artist: IArtist | null }): JSX.Element => {
   const { countriesOptions } = useAppSelector((state) => state.filters.countries);

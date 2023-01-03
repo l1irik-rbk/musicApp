@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { ITrackA, Paths } from '../helpers/types';
-import { useAppSelector } from '../Redux/hooks';
+import { ITrackA, Paths } from 'helpers/types';
+import { useAppSelector } from 'Redux/hooks';
 
 export const useCurrentTracks = (locationPath: string) => {
   const [currentTracks, setCurrentTracks] = useState<ITrackA[] | null>(null);

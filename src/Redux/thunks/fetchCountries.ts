@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 
-import { ALL_COUNTRIES, ERROR_MESSAGE } from '../../helpers/constants';
-import { ICountry, Status } from '../../helpers/types';
+import { ALL_COUNTRIES, ERROR_MESSAGE } from 'helpers/constants';
+import { ICountry, Status } from 'helpers/types';
 
 export const fetchCountries = createAsyncThunk(
   'filters/fetchCountries',

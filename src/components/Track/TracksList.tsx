@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { ITrackA } from '../../helpers/types';
+import { ITrackA } from 'helpers/types';
 import MusicLinks from './MusicLinks';
 
-import * as A from '../../theme/Components/UI/StyledMain';
+import * as A from 'theme/Components/UI/StyledMain';
 
 const TracksList = React.memo(({ tracks }: { tracks: ITrackA[] | null }): JSX.Element => {
   return (
