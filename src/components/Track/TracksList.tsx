@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { ITrackA } from 'helpers/types';
 import MusicLinks from './MusicLinks';
+
+import { ITrackA } from 'helpers/types';
 
 import * as A from 'theme/Components/UI/StyledMain';
 

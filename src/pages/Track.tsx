@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import Error from 'components/UI/Error';
-import Spinner from 'components/UI/Spinner';
-import TrackInfo from 'components/Track/TrackInfo';
-import TrackLyrics from 'components/Track/TrackLyrics';
-import { ButtonContent, Status } from 'helpers/types';
-import { useAppDispatch, useAppSelector } from 'Redux/hooks';
+import { Error, Spinner } from 'components/UI';
+import { TrackInfo, TrackLyrics } from 'components/Track';
+
+import { fetchLyrics, fetchTrack } from 'Redux/thunks';
 import { setLyrics } from 'Redux/slices/trackSlice';
-import { fetchLyrics } from 'Redux/thunks/fetchLyrics';
-import { fetchTrack } from 'Redux/thunks/fetchTrack';
+import { useAppDispatch, useAppSelector } from 'Redux/hooks';
+
+import { ButtonContent, Status } from 'helpers/types';
 
 import * as A from 'theme/Components/UI/StyledMain';
 

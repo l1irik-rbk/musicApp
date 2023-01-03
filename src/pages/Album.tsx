@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import AlbumInfo from 'components/Album/AlbumInfo';
-import Error from 'components/UI/Error';
-import Spinner from 'components/UI/Spinner';
-import Tracks from 'components/Track/Tracks';
-import { ButtonContent, Status } from 'helpers/types';
-import { useAppDispatch, useAppSelector } from 'Redux/hooks';
-import { fetchAlbum } from 'Redux/thunks/fetchAlbum';
-import { fetchAlbumTracks } from 'Redux/thunks/fetchAlbumTracks';
+import { Error, Spinner } from 'components/UI';
+import { AlbumInfo } from 'components/Album';
+import { Tracks } from 'components/Track';
+
+import { fetchAlbum, fetchAlbumTracks } from 'Redux/thunks';
 import { setAlbumTracks, setCurrentAlbum } from 'Redux/slices/albumSlice';
+import { useAppDispatch, useAppSelector } from 'Redux/hooks';
+
+import { ButtonContent, Status } from 'helpers/types';
 
 import * as A from 'theme/Components/UI/StyledMain';
 import * as C from 'theme/Components/UI/StyledContainers';

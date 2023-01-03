@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Paths } from 'helpers/types';
-import { useAppSelector } from 'Redux/hooks';
 import ArtistsList from './ArtistsList';
+
+import { useAppSelector } from 'Redux/hooks';
+
+import { Paths } from 'helpers/types';
 
 const Artists = (): JSX.Element => {
   const location = useLocation();

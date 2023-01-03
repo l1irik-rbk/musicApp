@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { Status } from 'helpers/types';
+import { Error, Spinner } from 'components/UI';
+import { Filters, Pagination, Search } from 'components/Controls';
+import { Tracks } from 'components/Track';
+import { Artists } from 'components/Artist';
+
 import { useAppSelector } from 'Redux/hooks';
-import Filters from 'components/Controls/Filters';
-import Artists from 'components/Artist/Artists';
-import Pagination from 'components/Controls/Pagination';
-import Search from 'components/Controls/Search';
-import Tracks from 'components/Track/Tracks';
-import Spinner from 'components/UI/Spinner';
-import Error from 'components/UI/Error';
+
+import { Status } from 'helpers/types';
 
 import * as C from 'theme/Components/UI/StyledContainers';
 

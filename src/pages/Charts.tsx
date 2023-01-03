@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 
-import Artists from 'components/Artist/Artists';
-import Error from 'components/UI/Error';
-import Filters from 'components/Controls/Filters';
-import Spinner from 'components/UI/Spinner';
-import Tracks from 'components/Track/Tracks';
-import { IOptions, Status } from 'helpers/types';
+import { Error, Spinner } from 'components/UI';
+import { Filters } from 'components/Controls';
+import { Tracks } from 'components/Track';
+import { Artists } from 'components/Artist';
+
+import { fetchChartArtists, fetchChartTracks } from 'Redux/thunks';
 import { useAppDispatch, useAppSelector } from 'Redux/hooks';
-import { fetchChartArtists } from 'Redux/thunks/fetchChartArtists';
-import { fetchChartTracks } from 'Redux/thunks/fetchChartTracks';
+
+import { IOptions, Status } from 'helpers/types';
 
 import * as C from 'theme/Components/UI/StyledContainers';
 

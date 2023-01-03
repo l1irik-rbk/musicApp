@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 
-import { ENTER_BUTTON } from 'helpers/constants';
+import { fetchTracksOrArtists } from 'Redux/thunks';
 import { useAppDispatch, useAppSelector } from 'Redux/hooks';
 import { setSearchValue } from 'Redux/slices/filtersSlice';
 import {
@@ -11,7 +11,8 @@ import {
   setTotalTracksOrArtists,
   setTracks,
 } from 'Redux/slices/mainPageSlice';
-import { fetchTracksOrArtists } from 'Redux/thunks/fetchTracksOrArtists';
+
+import { ENTER_BUTTON } from 'helpers/constants';
 
 import * as C from 'theme/Components/UI/StyledContainers';
 import * as S from 'theme/Components/Controls/StyledSearch';

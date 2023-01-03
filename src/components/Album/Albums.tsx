@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { Status } from 'helpers/types';
-import { useAppSelector } from 'Redux/hooks';
+import { Error, Spinner } from 'components/UI';
 import AlbumInfo from './AlbumInfo';
-import Error from 'components/UI/Error';
-import Spinner from 'components/UI/Spinner';
+
+import { useAppSelector } from 'Redux/hooks';
+
+import { Status } from 'helpers/types';
 
 import * as C from 'theme/Components/UI/StyledContainers';
 import * as A from 'theme/Components/UI/StyledMain';

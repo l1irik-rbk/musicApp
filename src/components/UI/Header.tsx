@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { IoMusicalNotes } from 'react-icons/io5';
 
 import { MENU_LINKS } from 'helpers/constants';

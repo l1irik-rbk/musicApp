@@ -1,14 +1,8 @@
 import { FaSpotify, FaYandex } from 'react-icons/fa';
 import { SiApplemusic } from 'react-icons/si';
 
-import Track from 'pages/Track';
-import Charts from 'pages/Charts';
-import FAQ from 'pages/FAQ';
-import MainPage from 'pages/MainPage';
-import NotFound from 'pages/NotFound';
+import { Album, Artist, Charts, FAQ, MainPage, NotFound, Track } from 'pages';
 import { IRoutes, Paths } from './types';
-import Artist from 'pages/Artist';
-import Album from 'pages/Album';
 
 export const API_KEY = 'apikey=f65d8f74ef058c97d0b0180f0efc5ac2';
 

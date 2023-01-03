@@ -1,9 +1,10 @@
 import React from 'react';
 
+import { useAppSelector } from 'Redux/hooks';
+
+import { NO_DATE } from 'helpers/constants';
 import { IArtist } from 'helpers/types';
 import { updateDateFormat } from 'utils/updateDateFormat';
-import { useAppSelector } from 'Redux/hooks';
-import { NO_DATE } from 'helpers/constants';
 
 import * as A from 'theme/Components/UI/StyledMain';
 

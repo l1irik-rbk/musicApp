@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { MESSAGE_LYRICS } from 'helpers/constants';
 import { useAppSelector } from 'Redux/hooks';
+
+import { MESSAGE_LYRICS } from 'helpers/constants';
 
 import * as S from 'theme/Components/UI/StyledError';
 
