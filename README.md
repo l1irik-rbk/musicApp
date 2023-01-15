@@ -2,6 +2,8 @@
 
 **ВАЖНО: если при загрузки данных возникает 403 ошибка, неообходимо нажать на кнопку 	*Request temporary access to the demo server* на [cors-anywhere.herokuapp.com](https://cors-anywhere.herokuapp.com)** 
 
+Весь код представлен в ветке develop.
+
 Deploy: https://musicapp-project.netlify.app/
 
 ## **Описание** 
